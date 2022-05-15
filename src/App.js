@@ -1,7 +1,7 @@
-import { StartPage } from "./pages";
+import { Main, StartPage } from "./pages";
 
 export default function App() {
     return (
-        <StartPage />
+        <Main />
     );
 }

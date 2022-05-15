@@ -1,7 +1,16 @@
-import Button from '@mui/material/Button'
-import CountryFlag from 'react-country-flag'
+import Button from '@mui/material/Button';
+import CountryFlag from 'react-country-flag';
+import { useTranslation } from "react-i18next";
 
+/**
+ * props.flag - Código da bandeira do país ('GB', 'PT', 'FR', 'ES')
+ * props.lng  - Linguagem escolhida ('en', 'pt', 'fr', 'es')
+ * props.text - Texto do botão
+ * props.next - Página seguinte
+ */
 export default function StartButton(props) {
+    const { t, i18n } = useTranslation('common');
+
     return (
         <Button
             style={{
@@ -21,6 +30,10 @@ export default function StartButton(props) {
                 countryCode={props.flag}
                 svg
             />}
+            onClick={() => {
+                i18n.changeLanguage(props.lng);
+                props.next();
+            }}
         >
             {props.text}
         </Button>

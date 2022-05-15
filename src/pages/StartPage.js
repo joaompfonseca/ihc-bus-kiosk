@@ -1,22 +1,20 @@
-import { Grid, Box } from "@mui/material";
-import CountryFlag from 'react-country-flag'
+import { Grid } from "@mui/material";
+import CountryFlag from 'react-country-flag';
 import StartButton from "../components/StartButton";
 import logo from '../assets/images/StartPage/logo.png';
-import main from '../assets/images/StartPage/main.jpg'
+import main from '../assets/images/StartPage/main.jpg';
 import '../assets/styles/StartPage.css';
 
-export default function StartPage() {
+export default function StartPage(props) {
 	return (
 		<Grid container>
-			<Grid container xs={8} alignItems='center' height='10vh'>
-				<h>
-					<b>Bus Ticket Vending Machine</b>
-				</h>
+			<Grid item xs={8} height='10vh'>
+				<h1>Bus Ticket Vending Machine</h1>
 			</Grid>
-			<Grid container className='logo' xs={4} alignItems='center' height='10vh'>
+			<Grid item className='logo' xs={4} height='10vh'>
 				<img src={logo} />
 			</Grid>
-			<Grid container className='main' xs={12} alignItems='center' height='40vh'>
+			<Grid item className='main' xs={12} height='40vh'>
 				<img src={main} />
 			</Grid>
 			<Grid item className='welcome' xs={12} align='left'>
@@ -28,16 +26,16 @@ export default function StartPage() {
 				<hr />
 			</Grid>
 			<Grid item xs={6} align='center'>
-				<StartButton flag='GB' text='Start' />
+				<StartButton flag='GB' lng='en' text='Start' next={props.goto('operation')} />
 			</Grid>
 			<Grid item xs={6} align='center'>
-				<StartButton flag='PT' text='Começar' />
+				<StartButton flag='PT' lng='pt' text='Começar' next={props.goto('operation')} />
 			</Grid>
 			<Grid item xs={6} align='center'>
-				<StartButton flag='FR' text='Commencer' />
+				<StartButton flag='FR' lng='fr' text='Commencer' next={props.goto('operation')} />
 			</Grid>
 			<Grid item xs={6} align='center'>
-				<StartButton flag='ES' text='Empezar' />
+				<StartButton flag='ES' lng='es' text='Empezar' next={props.goto('operation')} />
 			</Grid>
 		</Grid>
 	);

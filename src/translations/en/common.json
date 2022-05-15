@@ -1,0 +1,10 @@
+{
+    "back": "Back",
+    "operation": {
+        "prompt": "Select an operation",
+        "button": {
+            "tickets": "Tickets",
+            "passes": "Passes"
+        }
+    }
+}
