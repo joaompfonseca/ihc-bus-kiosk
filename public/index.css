@@ -1,0 +1,28 @@
+
+html {
+    display: flex;
+    background-color: black;
+}
+
+body {
+    aspect-ratio: 9 / 16;
+    height: 100vh;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto;
+    background-color: white; 
+}
+
+div {
+    padding: 1vh;
+}
+
+h {
+    font-size: 3vh;
+}
+
+p {
+    font-size: 2vh;
+}
