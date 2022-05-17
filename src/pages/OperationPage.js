@@ -24,10 +24,10 @@ export default function OperationPage(props) {
 				<h1>{t('operation.prompt')}</h1>
 				<hr />
 			</Grid>
-			<Grid item xs={6} align='center'>
+			<Grid item xs={6} align='right' paddingRight='2vh'>
 				<LargeActionButton text={t('operation.button.tickets')} next={props.goto('tickets')} />
 			</Grid>
-			<Grid item xs={6} align='center'>
+			<Grid item xs={6} align='left' paddingLeft='2vh'>
 				<LargeActionButton text={t('operation.button.passes')} next={props.goto('passes')} />
 			</Grid>
 		</Grid>

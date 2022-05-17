@@ -12,7 +12,7 @@ export default function LargeActionButton(props) {
         <Button
             style={{
                 height: '10vh',
-                width: '20vh',
+                width: '15vh',
                 fontSize: '1.5vh'
             }}
             size='large'

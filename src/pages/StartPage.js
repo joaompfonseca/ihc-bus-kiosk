@@ -25,16 +25,16 @@ export default function StartPage(props) {
 				<br />
 				<hr />
 			</Grid>
-			<Grid item xs={6} align='center'>
+			<Grid item xs={6} align='right' paddingRight='2vh'>
 				<StartButton flag='GB' lng='en' text='Start' next={props.goto('operation')} />
 			</Grid>
-			<Grid item xs={6} align='center'>
+			<Grid item xs={6} align='left' paddingLeft='2vh'>
 				<StartButton flag='PT' lng='pt' text='Começar' next={props.goto('operation')} />
 			</Grid>
-			<Grid item xs={6} align='center'>
+			<Grid item xs={6} align='right' paddingRight='2vh'>
 				<StartButton flag='FR' lng='fr' text='Commencer' next={props.goto('operation')} />
 			</Grid>
-			<Grid item xs={6} align='center'>
+			<Grid item xs={6} align='left' paddingLeft='2vh'>
 				<StartButton flag='ES' lng='es' text='Empezar' next={props.goto('operation')} />
 			</Grid>
 		</Grid>
