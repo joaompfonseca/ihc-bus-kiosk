@@ -2,14 +2,54 @@
     "back": "Back",
     "progress": {
         "operation": "Operation",
-        "type": "Type",
+        "action": "Action",
+        "ticket": "Ticket",
+        "pass": "Pass",
+        "customize": "Customize",
         "payment": "Payment"
     },
     "operation": {
-        "prompt": "Select an operation",
+        "promptBasic": "Select operation",
+        "promptHelp": "Select help",
         "button": {
             "tickets": "Tickets",
-            "passes": "Passes"
+            "passes": "Passes",
+            "helpRecPass": "Rechargable or Pass ?"
+        },
+        "description": {
+            "tickets": "lorem ipsum",
+            "passes": "lorem ipsum",
+            "helpRecPass": "lorem ipsum"
+        }
+    },
+    "passes": {
+        "promptBuy": "Buy pass",
+        "promptRenew": "Renew pass",
+        "button": {
+            "monthlyNormal": "Monthly Normal",
+            "monthlyStudent": "Monthly Student",
+            "renew": "Renew"
+        },
+        "description": {
+            "monthlyNormal": "This pass allows you to travel ",
+            "monthlyStudent": "lorem ipsum",
+            "renew": "lorem ipsum"
+        }
+    },
+    "tickets": {
+        "promptBuy": "Buy ticket",
+        "promptRecharge": "Recharge ticket",
+        "button": {
+            "single": "Single",
+            "rechargeable": "Rechargeable",
+            "fullDay": "Full Day",
+            "recharge": "Recharge"
+        },
+        "description": {
+            "single": "lorem ipsum",
+            "rechargeable": "lorem ipsum",
+            "fullDay": "lorem ipsum",
+            "recharge": "lorem ipsum"
         }
     }
 }

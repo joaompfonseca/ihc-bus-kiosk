@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { OperationPage, StartPage } from '.';
+import { StartPage, OperationPage, TicketsPage, PassesPage } from '.';
 
 export default class Main extends Component {
 
@@ -23,6 +23,14 @@ export default class Main extends Component {
                 />);
             case 'operation':
                 return (<OperationPage
+                    goto={this.goto}
+                />);
+            case 'tickets':
+                return (<TicketsPage
+                    goto={this.goto}
+                />);
+            case 'passes':
+                return (<PassesPage
                     goto={this.goto}
                 />);
             default:
