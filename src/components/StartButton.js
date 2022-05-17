@@ -1,4 +1,4 @@
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 import CountryFlag from 'react-country-flag';
 import { useTranslation } from "react-i18next";
 

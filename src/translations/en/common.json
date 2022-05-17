@@ -1,5 +1,10 @@
 {
     "back": "Back",
+    "progress": {
+        "operation": "Operation",
+        "type": "Type",
+        "payment": "Payment"
+    },
     "operation": {
         "prompt": "Select an operation",
         "button": {
