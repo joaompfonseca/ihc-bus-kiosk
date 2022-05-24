@@ -14,12 +14,12 @@
         "button": {
             "tickets": "Tickets",
             "passes": "Passes",
-            "helpRecPass": "Rechargable or Pass ?"
+            "helpRechargeablePass": "Rechargable or Pass ?"
         },
         "description": {
-            "tickets": "lorem ipsum",
-            "passes": "lorem ipsum",
-            "helpRecPass": "lorem ipsum"
+            "tickets": "This option allows you to purchase tickets.",
+            "passes": "This option allows you to purchase passes.",
+            "helpRechargeablePass": "Are you an occasional traveler but you don't know whats best for your wallet, buying a rechargable ticket or a monthly pass? Click here to get help finding the cheapest option."
         }
     },
     "passes": {
@@ -31,9 +31,9 @@
             "renew": "Renew"
         },
         "description": {
-            "monthlyNormal": "This pass allows you to travel ",
-            "monthlyStudent": "lorem ipsum",
-            "renew": "lorem ipsum"
+            "monthlyNormal": "This pass allows you to travel as much as you want during a whole month, in a selected zone.",
+            "monthlyStudent": "This pass allows you to travel like the previous one but is cheaper and only available for students.",
+            "renew": "Click here if you want to renew your pass."
         }
     },
     "tickets": {
@@ -46,10 +46,10 @@
             "recharge": "Recharge"
         },
         "description": {
-            "single": "lorem ipsum",
-            "rechargeable": "lorem ipsum",
-            "fullDay": "lorem ipsum",
-            "recharge": "lorem ipsum"
+            "single": "This ticket allows you to do a one time trip betwen two selected bus stops.",
+            "rechargeable": "This ticket works as a single ticket but you will have the option to recharge it with multiple single trips.",
+            "fullDay": "This ticket allows you to travel as much as you want inside a selected area for an intire day (or multiple days if selected).",
+            "recharge": "Click here if you want to recharge your rechargeable ticket."
         }
     }
 }
