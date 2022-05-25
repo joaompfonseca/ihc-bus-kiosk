@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
  * props.next - Página seguinte
  */
 export default function StartButton(props) {
-    const { t, i18n } = useTranslation('common');
+    const { i18n } = useTranslation('common');
 
     return (
         <Button
@@ -19,7 +19,6 @@ export default function StartButton(props) {
                 justifyContent: 'flex-start',
                 fontSize: '1.5vh'
             }}
-            size='large'
             variant='contained'
             color='primary'
             startIcon={<CountryFlag

@@ -15,7 +15,7 @@ export default function LargeActionButton(props) {
                 width: '15vh',
                 fontSize: '1.5vh'
             }}
-            size='large'
+            size='medium'
             variant='contained'
             color='primary'
             onClick={() => {

@@ -1,29 +1,27 @@
 import { Button } from '@mui/material';
 import { ArrowLeft } from '@mui/icons-material';
-import { useTranslation } from "react-i18next";
 
 /**
- * props.text - Texto do botão
- * props.back - Página anterior
+ * props.back       - Função que vai para a página anterior
+ * props.text       - Texto interior do botão
  */
 export default function BackButton(props) {
-    const { t, i18n } = useTranslation('common');
-
     return (
         <Button
             style={{
                 height: '5vh',
-                justifyContent: 'flex-start',
-                fontSize: '1.5vh'
+                width: '10vh',
+                fontSize: '1.5vh',
+                justifyContent: 'flex-start'
             }}
-            size='small'
             variant='contained'
-            color='primary'
-            startIcon={<ArrowLeft style={{
-                marginLeft: '-1vh',
-                marginRight: '-2vh',
-                fontSize: '4vh'
-            }}
+            color='warning'
+            startIcon={<ArrowLeft
+                style={{
+                    marginLeft: '-1vh',
+                    marginRight: '-2vh',
+                    fontSize: '4vh'
+                }}
             />}
             onClick={() => {
                 props.back();
