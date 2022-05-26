@@ -10,12 +10,12 @@ import { Edit, KeyboardArrowRight } from '@mui/icons-material';
 export default function Progress(props) {
     const theme = useTheme();
 
-    const primaryShades = [theme.palette.primary.light, theme.palette.primary.dark];
-    const warningShades = [theme.palette.warning.light, theme.palette.warning.dark];
+    const primaryShades = [theme.palette.primary.main, theme.palette.primary.light];
+    const warningShades = [theme.palette.warning.dark, theme.palette.warning.light];
     let index = 0;
 
     return (
-        <Grid container>
+        <Grid container padding={0}>
             {props.bigSteps.map((bigStep) => (
                 <>
                     <Grid item xs={2}
@@ -32,7 +32,7 @@ export default function Progress(props) {
                                 borderRadius: '0',
                                 borderTopLeftRadius: '0.5vh',
                                 marginBottom: '-0.5vh',
-                                backgroundColor: warningShades[index%2]
+                                backgroundColor: warningShades[index % 2]
                             }}
                             variant='contained'
                             onClick={() => {
@@ -52,11 +52,12 @@ export default function Progress(props) {
                             alignItems: 'center',
                             borderWidth: '0.3vh',
                             borderBottomWidth: '0.5vh',
-                            borderColor: primaryShades[index%2],
+                            borderColor: primaryShades[index % 2],
                             borderStyle: 'solid',
                             borderTopRightRadius: '0.5vh',
                             marginBottom: '-0.5vh',
-                            backgroundColor: primaryShades[index++%2],
+                            color: 'white',
+                            backgroundColor: primaryShades[index++ % 2],
                             zIndex: '1'
                         }}
                     >

@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import CountryFlag from 'react-country-flag';
-import StartButton from "../components/StartButton";
+import { StartButton } from "../components";
 import logo from '../assets/images/StartPage/logo.png';
 import main from '../assets/images/StartPage/main.jpg';
 import '../assets/styles/StartPage.css';

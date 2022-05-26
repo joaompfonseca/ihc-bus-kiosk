@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { StartPage, OperationPage, TicketsPage, PassesPage } from '.';
+import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage } from '.';
 
 export default class Main extends Component {
 
@@ -10,7 +10,14 @@ export default class Main extends Component {
      * operation - OperationPage
      * tickets - TicketsPage
      * passes - PassesPage
+     * helpRechargeableOrPass - HelpRechargeableOrPassPage
+     * single - SinglePage
+     * rechargeable - RechargeablePage
+     * fullDay - FullDayPage
+     * recharge - RechargePage
      * monthlyNormal - MonthlyNormalPage
+     * monthlyStudent - MonthlyStudentPage
+     * renew - RenewPage
      */
     state = {
         page: 'start'
@@ -27,20 +34,20 @@ export default class Main extends Component {
 
         switch (page) {
             case 'start':
-                return (<StartPage goto={this.goto} />);
+                return <StartPage goto={this.goto} />;
             case 'operation':
-                return (<OperationPage goto={this.goto} />);
+                return <OperationPage goto={this.goto} />;
             case 'tickets':
-                return (<TicketsPage goto={this.goto} />);
+                return <TicketsPage goto={this.goto} />;
             case 'passes':
-                return (<PassesPage goto={this.goto} />);
-            case 'helpRechargablePass':
+                return <PassesPage goto={this.goto} />;
+            case 'helpRechargeableOrPass':
                 break;
             /**
              * Tickets
              */
             case 'single':
-                break;
+                return <SinglePage goto={this.goto} />;
             case 'rechargeable':
                 break;
             case 'fullDay':

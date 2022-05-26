@@ -1,12 +1,10 @@
 import Button from '@mui/material/Button';
-import { useTranslation } from "react-i18next";
 
 /**
- * props.text - Texto do botão
- * props.next - Página seguinte
+ * props.next - Função que vai para a página seguinte
+ * props.text - Texto interior do botão
  */
 export default function LargeActionButton(props) {
-    const { t, i18n } = useTranslation('common');
 
     return (
         <Button
@@ -15,11 +13,10 @@ export default function LargeActionButton(props) {
                 width: '15vh',
                 fontSize: '1.5vh'
             }}
-            size='medium'
             variant='contained'
             color='primary'
             onClick={() => {
-                props.next(); /* Dá para simplificar? */
+                props.next();
             }}
         >
             {props.text}

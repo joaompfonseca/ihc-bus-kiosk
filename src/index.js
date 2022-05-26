@@ -14,17 +14,17 @@ import { initReactI18next } from 'react-i18next';
 i18next
   .use(initReactI18next)
   .init({
-  interpolation: { escapeValue: false },
-  lng: 'en',
-  resources: {
-    en: {
-      common: common_en
-    },
-    pt: {
-      common: common_pt
+    interpolation: { escapeValue: false },
+    lng: 'en',
+    resources: {
+      en: {
+        common: common_en
+      },
+      pt: {
+        common: common_pt
+      }
     }
-  }
-});
+  });
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(

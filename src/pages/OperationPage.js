@@ -1,24 +1,23 @@
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { LargeActionButton, Progress, BackButton } from "../components";
-import '../assets/styles/OperationPage.css';
 
 export default function OperationPage(props) {
     const { t } = useTranslation('common');
 
     return (
-        <Grid container>
+        <Grid container alignItems='center'>
             <Grid item xs={12}>
                 <Progress
                     bigSteps={[]}
                     smallSteps={[
-                        <Typography fontWeight='bold' color='success.dark'>{t('progress.smallStep.operation')}</Typography>,
+                        <Typography fontWeight='bold' color='success.main'>{t('progress.smallStep.operation')}</Typography>,
                         <Typography>{t('progress.smallStep.type')}</Typography>
                     ]}
                 />
             </Grid>
             <Grid item xs={12} align='center'>
-                <h1>{t('operation.promptBasic')}</h1>
+                <h1>{t('operation.prompt.basic')}</h1>
                 <hr />
             </Grid>
             <Grid item xs={4} align='left'>
@@ -38,19 +37,19 @@ export default function OperationPage(props) {
                 </Typography>
             </Grid>
             <Grid item xs={12} align='center'>
-                <h1>{t('operation.promptHelp')}</h1>
+                <h1>{t('operation.prompt.help')}</h1>
                 <hr />
             </Grid>
             <Grid item xs={4} align='left'>
-                <LargeActionButton text={t('operation.button.helpRechargeablePass')} next={props.goto('helpRechargeablePass')} />
+                <LargeActionButton text={t('operation.button.helpRechargeableOrPass')} next={props.goto('helpRechargeableOrPass')} />
             </Grid>
             <Grid item xs={8}>
                 <Typography variant='p'>
-                    {t('operation.description.helpRechargeablePass')}
+                    {t('operation.description.helpRechargeableOrPass')}
                 </Typography>
             </Grid>
             <Grid item xs={12} position='fixed' bottom='2vh'>
-                <BackButton text={t('back')} back={props.goto('start')} />
+                <BackButton text={t('button.back')} back={props.goto('start')} />
             </Grid>
         </Grid>
     );

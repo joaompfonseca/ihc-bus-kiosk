@@ -1,5 +1,8 @@
 {
-    "back": "Back",
+    "button": {
+        "back": "Back",
+        "continue": "Continue"
+    },
     "progress": {
         "bigStep": {
             "tickets": {
@@ -36,22 +39,26 @@
         }
     },
     "operation": {
-        "promptBasic": "Select operation",
-        "promptHelp": "Select help",
+        "prompt": {
+            "basic": "Select operation",
+            "help": "Select help"
+        },
         "button": {
             "tickets": "Tickets",
             "passes": "Passes",
-            "helpRechargeablePass": "Rechargable or Pass ?"
+            "helpRechargeableOrPass": "Rechargable or Pass ?"
         },
         "description": {
             "tickets": "This option allows you to purchase tickets.",
             "passes": "This option allows you to purchase passes.",
-            "helpRechargeablePass": "Are you an occasional traveler but you don't know whats best for your wallet, buying a rechargable ticket or a monthly pass? Click here to get help finding the cheapest option."
+            "helpRechargeableOrPass": "Are you an occasional traveler but you don't know whats best for your wallet, buying a rechargable ticket or a monthly pass? Click here to get help finding the cheapest option."
         }
     },
     "tickets": {
-        "promptBuy": "Buy ticket",
-        "promptRecharge": "Recharge ticket",
+        "prompt": {
+            "buy": "Buy ticket",
+            "recharge": "Recharge ticket"
+        },
         "button": {
             "single": "Single",
             "rechargeable": "Rechargeable",
@@ -66,8 +73,10 @@
         }
     },
     "passes": {
-        "promptBuy": "Buy pass",
-        "promptRenew": "Renew pass",
+        "prompt": {
+            "buy": "Buy pass",
+            "renew": "Renew pass"
+        },
         "button": {
             "monthlyNormal": "Monthly Normal",
             "monthlyStudent": "Monthly Student",
@@ -77,6 +86,17 @@
             "monthlyNormal": "This pass allows you to travel as much as you want during a whole month, in a selected zone.",
             "monthlyStudent": "This pass allows you to travel like the previous one but is cheaper and only available for students.",
             "renew": "Click here if you want to renew your pass."
+        }
+    },
+    "single": {
+        "prompt": {
+            "create": "Create route",
+            "select": "Select route"
+        },
+        "label": {
+            "origin": "Add origin",
+            "destination": "Add destination",
+            "date": "Departure date"
         }
     }
 }
