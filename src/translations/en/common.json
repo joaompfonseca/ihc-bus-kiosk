@@ -98,5 +98,9 @@
             "destination": "Add destination",
             "date": "Departure date"
         }
+    },
+    "payment": {
+        "prompt": "Insert NIF",
+        "continue": "Continue"
     }
 }

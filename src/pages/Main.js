@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage } from '.';
+import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage } from '.';
 
 export default class Main extends Component {
 
@@ -63,6 +63,12 @@ export default class Main extends Component {
                 break;
             case 'renew':
                 break;
+            /*
+                Payment
+            */
+           case 'nif':
+                return <NifPage goto={this.goto} />;
+
             default:
             // do nothing
         }
