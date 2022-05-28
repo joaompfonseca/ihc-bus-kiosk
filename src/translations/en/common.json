@@ -1,7 +1,7 @@
 {
     "button": {
         "back": "Back",
-        "continue": "Continue"
+        "payment": "Payment"
     },
     "progress": {
         "bigStep": {
@@ -29,14 +29,16 @@
         "smallStep": {
             "operation": "Select operation",
             "type": "Select type",
-            "ticket": "Customize ticket",
-            "pass": "Customize pass",
-            "confirm": "Confirm choices",
+            "createRoute": "Create route",
+            "selectRoute": "Select route",
             "nif": "Insert NIF",
             "payment": "Select payment method",
             "transaction": "Make transaction",
             "finish": "Finish purchase"
         }
+    },
+    "routeInfo": {
+        "buses": "Buses"
     },
     "operation": {
         "prompt": {
@@ -97,6 +99,11 @@
             "origin": "Add origin",
             "destination": "Add destination",
             "date": "Departure date"
+        }
+    },
+    "confirmSingle": {
+        "prompt": {
+            "details": "Confirm details"
         }
     }
 }
