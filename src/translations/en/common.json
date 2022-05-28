@@ -105,5 +105,9 @@
         "prompt": {
             "details": "Confirm details"
         }
+    },
+    "payment": {
+        "prompt": "Insert NIF",
+        "continue": "Continue"
     }
 }

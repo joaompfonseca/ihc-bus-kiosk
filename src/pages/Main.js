@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, ConfirmSinglePage } from '.';
+import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage } from '.';
 
 export default class Main extends Component {
 
@@ -25,11 +25,11 @@ export default class Main extends Component {
         data: null
     }
 
-    goto = (page, data=null) => e => {
-        this.setState({ 
+    goto = (page, data = null) => e => {
+        this.setState({
             page: page,
             data: data
-         })
+        })
     }
 
     render() {
@@ -68,11 +68,12 @@ export default class Main extends Component {
                 break;
             case 'renew':
                 break;
-            /**
-             * Confirm
-             */
-            case 'confirmSingle':
-                return <ConfirmSinglePage goto={this.goto} data={data} />
+            /*
+                Payment
+            */
+            case 'nif':
+                return <NifPage goto={this.goto} />;
+
             default:
             // do nothing
         }
