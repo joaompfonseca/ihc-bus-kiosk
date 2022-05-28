@@ -8,6 +8,7 @@ export default function BasicDatePicker() {
     return (
         <DatePicker
             selected={startDate}
+            dateFormat={'dd/MM/yyyy'}
             onChange={(date) => setStartDate(date)}
         />
     );
