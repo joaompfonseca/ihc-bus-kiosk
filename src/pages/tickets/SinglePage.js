@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { Progress, BackButton, ContinueButton, FunctionButton, BasicDatePicker } from "../../components";
+import { Progress, BackButton, ContinueButton, BasicDatePicker, AddButton, EditButton } from "../../components";
 
 class SinglePage extends Component {
     constructor(props) {
@@ -9,12 +9,30 @@ class SinglePage extends Component {
         this.state = null;
     }
 
-    setOrigin = (text) => e => {
-        this.setState({ origin: text });
+    setOrigin = (text) => {
+        this.setState({ 
+            origin: text
+        });
     }
 
-    setDestination = (text) => e => {
-        this.setState({ destination: text });
+    setDestination = (text) => {
+        this.setState({ 
+            destination: text
+        });
+    }
+
+    setOriginButton = (origin, t) => {
+        if (origin === t('single.label.origin'))
+            return <AddButton action={() => {this.setOrigin('Terminal Rodoviário de Aveiro')}} />
+        else
+            return <EditButton action={() => {this.setOrigin('Outra coisa')}} />
+    }
+
+    setDestinationButton = (destination, t) => {
+        if (destination === t('single.label.destination'))
+            return <AddButton action={() => {this.setDestination('Costa Nova')}} />
+        else
+            return <EditButton action={() => {this.setDestination('Mais outra coisa')}} />
     }
 
     render() {
@@ -51,7 +69,7 @@ class SinglePage extends Component {
                         <hr />
                     </Grid>
                     <Grid item xs={2} align='left'>
-                        <FunctionButton action={this.setOrigin('Terminal Rodoviário de Aveiro')} text={'+'} />
+                        {this.setOriginButton(origin, t)}
                     </Grid>
                     <Grid item xs={10}>
                         <Typography className='origin' variant='p'>
@@ -59,7 +77,7 @@ class SinglePage extends Component {
                         </Typography>
                     </Grid>
                     <Grid item xs={2} align='left'>
-                        <FunctionButton action={this.setDestination('Costa Nova')} text={'+'} />
+                        {this.setDestinationButton(destination, t)}
                     </Grid>
                     <Grid item xs={10}>
                         <Typography className='destination' variant='p'>
