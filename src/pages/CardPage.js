@@ -36,7 +36,7 @@ export default function CardPage(props) {
                     <hr />
                 </Grid>
                 <Grid item xs={12} align='right'>
-                    <ContinueButton text="Continue" next={props.goto('receipt')} />
+                    <ContinueButton text="Continue" action={props.goto('receipt')} />
                 </Grid>
             </Grid>
     );

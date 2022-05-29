@@ -42,7 +42,7 @@ export default function MBWayPage(props) {
                     <hr />
                 </Grid>
                 <Grid item xs={12} align='right'>
-                    <ContinueButton text="Continue" next={props.goto('receipt')} />
+                    <ContinueButton text="Continue" action={props.goto('receipt')} />
                 </Grid>
             </Grid>
     );

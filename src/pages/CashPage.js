@@ -73,7 +73,7 @@ class CashPage extends Component {
                     <TextBox></TextBox>
                 </Grid>
                 <Grid item xs={12} align ='right' bottom='2vh'>
-                    <ContinueButton text={t('payment.nif.continue')} next={goto('receipt')} />
+                    <ContinueButton text={t('payment.nif.continue')} action={goto('receipt')} />
                 </Grid>
             </Grid>
             </>

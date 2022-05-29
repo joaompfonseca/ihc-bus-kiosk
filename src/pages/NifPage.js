@@ -67,7 +67,7 @@ class NifPage extends Component {
                     <NumericButton item text='Backspace' action={this.setNif('')} align='right'></NumericButton>
                 </Grid>
                 <Grid item xs={12} align ='right' bottom='2vh'>
-                    <ContinueButton text={t('payment.nif.continue')} next={goto('methods')} />
+                    <ContinueButton text={t('payment.nif.continue')} action={goto('methods')} />
                 </Grid>
             </Grid>
             </>
