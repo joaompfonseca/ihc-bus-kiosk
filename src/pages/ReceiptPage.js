@@ -4,7 +4,6 @@ import { Component } from "react";
 import { LargeActionButton, Progress, BackButton, ContinueButton} from "../components";
 import { withTranslation } from "react-i18next";
 import NumericButton from "../components/NumericButton";
-import TextBox from "../components/TextField";
 import MethodButton from "../components/MethodButton";
 import applepay from '../assets/images/ApplePayPage/applepay.png';
 import receipt from '../assets/images/ReceiptPage/receipt.jpg';

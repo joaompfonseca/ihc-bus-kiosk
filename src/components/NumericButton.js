@@ -32,7 +32,6 @@ export default class NumericButton extends Component {
                 color='info'
                 onClick={() => {
                     action();
-                    //this.setText(<Edit />);
                 }}
             >
                 {text}

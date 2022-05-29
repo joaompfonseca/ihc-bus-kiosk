@@ -1,9 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Component } from "react";
-import { LargeActionButton, Progress, BackButton, ContinueButton} from "../components";
+import { LargeActionButton, Progress, BackButton, ContinueButton, TextBox} from "../components";
 import { withTranslation } from "react-i18next";
-import TextBox from "../components/TextField";
 import cash from '../assets/images/PaymentMethodPage/cash.png';
 import '../assets/styles/CashPage.css';
 
