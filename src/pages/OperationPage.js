@@ -48,6 +48,9 @@ export default function OperationPage(props) {
                     {t('operation.description.helpRechargeableOrPass')}
                 </Typography>
             </Grid>
+            <Grid item xs={12} align='right' bottom='2vh'>
+                <BackButton text={t('button.back')} back={props.goto('nif')} />
+            </Grid>
             <Grid item xs={12} position='fixed' bottom='2vh'>
                 <BackButton text={t('button.back')} back={props.goto('start')} />
             </Grid>

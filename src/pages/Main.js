@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage } from '.';
+import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage, PaymentMethodPage, CashPage, CardPage,
+     MBWayPage, ApplePayPage, ReceiptPage } from '.';
 
 export default class Main extends Component {
 
@@ -73,6 +74,20 @@ export default class Main extends Component {
             */
             case 'nif':
                 return <NifPage goto={this.goto} />;
+            case 'methods':
+                return <PaymentMethodPage goto={this.goto} />;
+            case 'cash':
+                return <CashPage goto={this.goto} />
+            case 'card':
+                return <CardPage goto={this.goto} />
+            case 'mbway':
+                return <MBWayPage goto={this.goto} />
+            case 'applepay':
+                return <ApplePayPage goto={this.goto} />
+            case 'receipt':
+                return <ReceiptPage goto={this.goto} />
+
+            
 
             default:
             // do nothing
