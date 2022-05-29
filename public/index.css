@@ -41,7 +41,28 @@ p, span {
     color: 'white';
     font-size: 2vh;
 }
-
 .react-datepicker-wrapper {
     width: 10vh !important
+}
+
+.route-info div {
+    padding: 0;
+}
+.route-info h1 {
+    font-size: 3vh;
+}
+.route-info h2 {
+    font-size: 2.5vh;
+}
+.route-info h3 {
+    font-size: 2vh;
+}
+.route-info h4 {
+    font-size: 1.5vh;
+}
+.route-info h5 {
+    font-size: 1vh;
+}
+.route-info h6 {
+    font-size: 0.5vh;
 }

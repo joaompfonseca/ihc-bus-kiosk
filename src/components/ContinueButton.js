@@ -3,11 +3,12 @@ import { useTheme } from '@mui/material/styles';
 import { ArrowRight } from '@mui/icons-material';
 
 /**
- * props.back - Função que vai para a página anterior
+ * props.action - Função que vai excutar a ação pretendida
  * props.text - Texto interior do botão
  */
 export default function ContinueButton(props) {
     const theme = useTheme();
+    const { action, text } = props;
 
     return (
         <Button
@@ -26,10 +27,10 @@ export default function ContinueButton(props) {
                 }}
             />}
             onClick={() => {
-                props.back();
+                action();
             }}
         >
-            {props.text}
+            {text}
         </Button>
     );
 }
