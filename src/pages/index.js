@@ -7,3 +7,10 @@ export {default as PassesPage} from './PassesPage';
 export {default as SinglePage} from './tickets/SinglePage';
 /*payment*/
 export {default as NifPage} from './NifPage';
+export {default as PaymentMethodPage} from './PaymentMethodPage';
+export {default as CashPage} from './CashPage';
+export {default as CardPage} from './CardPage';
+export {default as MBWayPage} from './MBWayPage';
+export {default as ApplePayPage} from './ApplePayPage';
+export {default as ReceiptPage} from './ReceiptPage';
+

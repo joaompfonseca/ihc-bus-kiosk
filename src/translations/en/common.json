@@ -100,7 +100,36 @@
         }
     },
     "payment": {
-        "prompt": "Insert NIF",
-        "continue": "Continue"
+        "nif": {
+            "prompt": "Insert NIF",
+            "continue": "Continue",
+            "label": "Insert NIF here"
+        },
+
+        "method": {
+            "prompt": "Select payment method",
+            "cash": "Cash",
+            "card": "Credit Card",
+            "mbway": "MB Way",
+            "apple": "Apple Pay",
+            "paypal": "Paypal",
+            "bitcoin": "Bitcoin"
+        },
+        "cash": {
+            "prompt": "Insert the money"
+        },
+        "mbway": {
+            "prompt": "Read the QR Code"
+        },
+        "card": {
+            "prompt": "Insert the card and follow the instructions"
+        },
+        "applepay": {
+            "prompt": "Hold your phone near the sensor"
+        }
+    },
+    "receipt": {
+        "prompt": "Take the receipt",
+        "thanks": "Thank you and come back soon!"
     }
 }

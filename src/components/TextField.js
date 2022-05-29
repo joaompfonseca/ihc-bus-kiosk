@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 
-export default function FormPropsTextFields() {
+export default function TextBox(props) {
   return (
     <Box
       component="form"
@@ -14,8 +14,8 @@ export default function FormPropsTextFields() {
     >
         <TextField
           id="outlined-read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
+          //label="Read Only"
+          defaultValue="Insert NIF here"
           InputProps={{
             readOnly: true,
           }}

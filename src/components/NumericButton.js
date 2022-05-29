@@ -17,7 +17,7 @@ export default function NumericButton(props) {
             variant='text'
             color='inherit'
             onClick={() => {
-                props.next();
+                ;
             }}
         >
             {props.text}
