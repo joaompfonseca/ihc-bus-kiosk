@@ -15,7 +15,7 @@ class SinglePage extends Component {
             <Typography fontWeight='bold'>{this.props.t('progress.smallStep.createRoute')}</Typography>,
             <Typography fontWeight='bold' color='success.main'> {this.props.t('progress.smallStep.selectRoute')}</Typography>
         ]
-    ]
+    ];
 
     routes = [
         {
@@ -93,8 +93,6 @@ class SinglePage extends Component {
             return smallSteps[0];
         else
             return smallSteps[1];
-
-
     }
 
     getOriginButton = () => {
@@ -215,7 +213,7 @@ class SinglePage extends Component {
                     <Grid item xs={12} align='center'>
                         {this.getRoutesPrompt()}
                     </Grid>
-                    <Grid item xs={12} className='route-info' height='30vh'>
+                    <Grid item xs={12} className='info' height='30vh'>
                         {this.getRoutes()}
                     </Grid>
                     <Grid item xs={12}

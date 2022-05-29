@@ -45,24 +45,24 @@ p, span {
     width: 10vh !important
 }
 
-.route-info div {
+.info div {
     padding: 0;
 }
-.route-info h1 {
+.info h1 {
     font-size: 3vh;
 }
-.route-info h2 {
+.info h2 {
     font-size: 2.5vh;
 }
-.route-info h3 {
+.info h3 {
     font-size: 2vh;
 }
-.route-info h4 {
+.info h4 {
     font-size: 1.5vh;
 }
-.route-info h5 {
+.info h5 {
     font-size: 1vh;
 }
-.route-info h6 {
+.info h6 {
     font-size: 0.5vh;
 }

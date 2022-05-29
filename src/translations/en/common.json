@@ -1,6 +1,7 @@
 {
     "button": {
         "back": "Back",
+        "continue": "Continue",
         "payment": "Payment"
     },
     "progress": {
@@ -16,7 +17,6 @@
                 "monthlyStudent": "Monthly Student Pass",
                 "renew": "Renew Pass"
             },
-            "customization": "Customization",
             "payment": {
                 "cash": "Payment in cash",
                 "card": "Payment with debit/credit card",
@@ -27,6 +27,12 @@
             }
         },
         "smallStep": {
+            "passes": {
+                "renew": {
+                    "scan": "Scan pass",
+                    "details": "Pass details"
+                }
+            },
             "operation": "Select operation",
             "type": "Select type",
             "createRoute": "Create route",
@@ -38,6 +44,12 @@
         }
     },
     "routeInfo": {
+        "buses": "Buses"
+    },
+    "passInfo": {
+        "passName": {
+            "monthlyStudent": "Monthly Student Pass"
+        },
         "buses": "Buses"
     },
     "operation": {
@@ -101,9 +113,13 @@
             "date": "Departure date"
         }
     },
-    "confirmSingle": {
+    "renew": {
         "prompt": {
-            "details": "Confirm details"
+            "scan": "Scan your pass",
+            "details": "Your pass details"
+        },
+        "description": {
+            "scan": "Hold your pass near the card reader."
         }
     },
     "payment": {
