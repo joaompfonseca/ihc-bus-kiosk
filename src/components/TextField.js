@@ -15,7 +15,7 @@ export default function TextBox(props) {
         <TextField
           id="outlined-read-only-input"
           //label="Read Only"
-          defaultValue="Insert NIF here"
+          //defaultValue="Insert NIF here"
           InputProps={{
             readOnly: true,
           }}
