@@ -13,8 +13,7 @@
                 "recharge": "Recharge Ticket"
             },
             "passes": {
-                "monthlyNormal": "Monthly Normal Pass",
-                "monthlyStudent": "Monthly Student Pass",
+                "monthly": "Monthly Pass",
                 "renew": "Renew Pass"
             },
             "payment": {
@@ -63,9 +62,9 @@
             "helpRechargeableOrPass": "Rechargable or Pass ?"
         },
         "description": {
-            "tickets": "This option allows you to purchase tickets.",
-            "passes": "This option allows you to purchase passes.",
-            "helpRechargeableOrPass": "Are you an occasional traveler but you don't know whats best for your wallet, buying a rechargable ticket or a monthly pass? Click here to get help finding the cheapest option."
+            "tickets": "Tickets allow you to travel once between two selected locations, or an entire day in selected areas.",
+            "passes": "Passes allow you to travel as much as you want in selected routes, during an entire month and at a fixed price.",
+            "helpRechargeableOrPass": "Find out if a rechargeable ticket or a monthly pass is cheaper for you."
         }
     },
     "tickets": {
@@ -80,10 +79,10 @@
             "recharge": "Recharge"
         },
         "description": {
-            "single": "This ticket allows you to do a one time trip betwen two selected bus stops.",
-            "rechargeable": "This ticket works as a single ticket but you will have the option to recharge it with multiple single trips.",
-            "fullDay": "This ticket allows you to travel as much as you want inside a selected area for an intire day (or multiple days if selected).",
-            "recharge": "Click here if you want to recharge your rechargeable ticket."
+            "single": "This ticket allows you to travel once between two selected locations.",
+            "rechargeable": "This ticket can contain several single tickets of the same type and can be reacharged with more.",
+            "fullDay": "This ticket allows you to travel as much as you want in selected areas, for one or more entire days.",
+            "recharge": "Here you can recharge your rechargeable ticket."
         }
     },
     "passes": {
@@ -92,14 +91,12 @@
             "renew": "Renew pass"
         },
         "button": {
-            "monthlyNormal": "Monthly Normal",
-            "monthlyStudent": "Monthly Student",
+            "monthly": "Monthly",
             "renew": "Renew"
         },
         "description": {
-            "monthlyNormal": "This pass allows you to travel as much as you want during a whole month, in a selected zone.",
-            "monthlyStudent": "This pass allows you to travel like the previous one but is cheaper and only available for students.",
-            "renew": "Click here if you want to renew your pass."
+            "monthly": "This pass allows you to travel as much as you want in selected routes, during an entire month.",
+            "renew": "Here you can renew your monthly pass."
         }
     },
     "single": {
