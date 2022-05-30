@@ -30,7 +30,7 @@ export default function TicketsPage(props) {
                     </Typography>
                 </Grid>
                 <Grid item xs={4} align='left'>
-                    <LargeActionButton text={t('tickets.button.rechargeable')} next={props.goto('rechargeable')} />
+                    <LargeActionButton text={t('tickets.button.rechargeable')} next={props.goto('rechargeable')} disabled />
                 </Grid>
                 <Grid item xs={8}>
                     <Typography variant='p'>
@@ -38,7 +38,7 @@ export default function TicketsPage(props) {
                     </Typography>
                 </Grid>
                 <Grid item xs={4} align='left'>
-                    <LargeActionButton text={t('tickets.button.fullDay')} next={props.goto('fullDay')} />
+                    <LargeActionButton text={t('tickets.button.fullDay')} next={props.goto('fullDay')} disabled />
                 </Grid>
                 <Grid item xs={8}>
                     <Typography variant='p'>
@@ -50,7 +50,7 @@ export default function TicketsPage(props) {
                     <hr />
                 </Grid>
                 <Grid item xs={4} align='left'>
-                    <LargeActionButton text={t('tickets.button.recharge')} next={props.goto('recharge')} />
+                    <LargeActionButton text={t('tickets.button.recharge')} next={props.goto('recharge')} disabled />
                 </Grid>
                 <Grid item xs={8}>
                     <Typography variant='p'>

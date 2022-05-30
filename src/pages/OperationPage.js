@@ -42,7 +42,7 @@ export default function OperationPage(props) {
                     <hr />
                 </Grid>
                 <Grid item xs={4} align='left'>
-                    <LargeActionButton text={t('operation.button.helpRechargeableOrPass')} next={props.goto('helpRechargeableOrPass')} />
+                    <LargeActionButton text={t('operation.button.helpRechargeableOrPass')} next={props.goto('helpRechargeableOrPass')} disabled />
                 </Grid>
                 <Grid item xs={8}>
                     <Typography variant='p'>

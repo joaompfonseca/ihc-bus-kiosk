@@ -5,9 +5,11 @@ import Button from '@mui/material/Button';
  * props.text - Texto interior do botão
  */
 export default function LargeActionButton(props) {
+    const { disabled = false } = props;
 
     return (
         <Button
+            disabled={disabled}
             style={{
                 height: '10vh',
                 width: '15vh',
