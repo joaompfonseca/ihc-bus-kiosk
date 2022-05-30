@@ -105,6 +105,7 @@
     "single": {
         "prompt": {
             "create": "Create route",
+            "location": "Select location",
             "select": "Select route"
         },
         "label": {

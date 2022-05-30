@@ -1,10 +1,20 @@
 import { Grid, Typography, Pagination } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { Progress, BackButton, ContinueButton, BasicDatePicker, AddButton, EditButton, RouteInfo } from "../../components";
+import { Progress, BackButton, ContinueButton, BasicDatePicker, AddButton, EditButton, RouteInfo, LocationsModal } from "../../components";
 import transdev from '../../assets/images/logos/transdev.jpg';
 
 class SinglePage extends Component {
+
+    state = {
+        origin_locations_modal: false,
+        origin_selected: false,
+        origin_name: this.props.t('single.label.origin'),
+        destination_locations_modal: false,
+        destination_selected: false,
+        destination_name: this.props.t('single.label.destination'),
+        routes_page: 1
+    };
 
     smallSteps = [
         [
@@ -17,43 +27,53 @@ class SinglePage extends Component {
         ]
     ];
 
+    origin_names = [
+        'Ted Sit Amet',
+        'Terminal Rodoviário de Aveiro',
+        'Tullam Mattis'
+    ];
+
+    destination_names = [
+        'Commodo Metus',
+        'Costa Nova',
+        'Cusces Eget'
+    ];
+
     routes = [
         {
             logo: transdev,
             price: '4,00€',
-            origin_name: 'Terminal Rodoviário de Aveiro',
             origin_time: '10:05',
-            destination_name: 'Costa Nova',
             destination_time: '10:25',
             buses: ['5002']
         },
         {
             logo: transdev,
             price: '2,00€',
-            origin_name: 'Terminal Rodoviário de Aveiro',
             origin_time: '10:10',
-            destination_name: 'Costa Nova',
             destination_time: '10:40',
             buses: ['5005', '5007']
         },
         {
             logo: transdev,
             price: '3,00€',
-            origin_name: 'Terminal Rodoviário de Aveiro',
             origin_time: '10:35',
-            destination_name: 'Costa Nova',
             destination_time: '10:55',
             buses: ['5010']
         },
     ];
 
-    state = {
-        origin_selected: false,
-        origin_name: this.props.t('single.label.origin'),
-        destination_selected: false,
-        destination_name: this.props.t('single.label.destination'),
-        routes_page: 1
-    };
+    setOriginLocationsModal = (bool) => {
+        this.setState({
+            origin_locations_modal: bool
+        })
+    }
+
+    setDestinationLocationsModal = (bool) => {
+        this.setState({
+            destination_locations_modal: bool
+        })
+    }
 
     setOriginSelected = (bool) => {
         this.setState({
@@ -99,18 +119,18 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { origin_selected } = this.state;
         if (origin_selected)
-            return <EditButton action={() => { this.setOriginName(t('single.label.origin')) }} />;
+            return <EditButton action={() => { this.setOriginLocationsModal(true); this.setOriginSelected(false); }} />;
         else
-            return <AddButton action={() => { this.setOriginName('Terminal Rodoviário de Aveiro'); this.setOriginSelected(true); }} />;
+            return <AddButton action={() => { this.setOriginLocationsModal(true); }} />;
     }
 
     getDestinationButton = () => {
         const { t } = this.props;
         const { destination_selected } = this.state;
         if (destination_selected)
-            return <EditButton action={() => { this.setDestinationName(t('single.label.destination')) }} />
+            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(true); }} />
         else
-            return <AddButton action={() => { this.setDestinationName('Costa Nova'); this.setDestinationSelected(true); }} />
+            return <AddButton action={() => { this.setDestinationLocationsModal(true); }} />
     }
 
     getRoutesPrompt = () => {
@@ -128,7 +148,7 @@ class SinglePage extends Component {
 
     getRoutes = () => {
         const { goto } = this.props;
-        const { origin_selected, destination_selected, routes_page } = this.state;
+        const { origin_selected, origin_name, destination_selected, destination_name, routes_page } = this.state;
         const routes = this.routes;
 
         if (!origin_selected || !destination_selected)
@@ -137,18 +157,42 @@ class SinglePage extends Component {
         switch (routes_page) {
             case 1: return [
                 <RouteInfo
-                    details={routes[0]}
-                    action={goto('nif', routes[0])}
+                    details={{
+                        origin_name: origin_name,
+                        destination_name: destination_name,
+                        ...routes[0]
+                    }}
+                    action={goto('nif', {
+                        origin_name: origin_name,
+                        destination_name: destination_name,
+                        ...routes[0]
+                    })}
                 />,
                 <RouteInfo
-                    details={routes[1]}
-                    action={goto('nif', routes[1])}
+                    details={{
+                        origin_name: origin_name,
+                        destination_name: destination_name,
+                        ...routes[1]
+                    }}
+                    action={goto('nif', {
+                        origin_name: origin_name,
+                        destination_name: destination_name,
+                        ...routes[1]
+                    })}
                 />
             ];
             case 2: return [
                 <RouteInfo
-                    details={routes[2]}
-                    action={goto('nif', routes[2])}
+                    details={{
+                        origin_name: origin_name,
+                        destination_name: destination_name,
+                        ...routes[2]
+                    }}
+                    action={goto('nif', {
+                        origin_name: origin_name,
+                        destination_name: destination_name,
+                        ...routes[2]
+                    })}
                 />
             ];
         }
@@ -169,10 +213,24 @@ class SinglePage extends Component {
 
     render() {
         const { t, goto } = this.props;
-        const { origin_name, destination_name } = this.state;
+        const { origin_locations_modal, destination_locations_modal, origin_name, destination_name } = this.state;
+        const origin_names = this.origin_names;
+        const destination_names = this.destination_names;
 
         return (
             <>
+                <LocationsModal
+                    action={(name) => {this.setOriginName(name); this.setOriginSelected(true); this.setOriginLocationsModal(false); }}
+                    location_names={origin_names}
+                    onClose={() => { this.setOriginLocationsModal(false); }}
+                    open={origin_locations_modal}
+                />
+                <LocationsModal
+                    action={(name) => {this.setDestinationName(name); this.setDestinationSelected(true); this.setDestinationLocationsModal(false); }}
+                    location_names={destination_names}
+                    onClose={() => { this.setDestinationLocationsModal(false); }}
+                    open={destination_locations_modal}
+                />
                 <Grid container alignItems='center'>
                     <Grid item xs={12}>
                         <Progress
