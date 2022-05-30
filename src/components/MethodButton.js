@@ -16,7 +16,8 @@ export default function MethodButton(props) {
                 width: '20vh',
                 fontSize: '1.5vh',
                 justifyContent: 'flex-start',
-                backgroundColor: theme.palette.success.main
+                backgroundColor: theme.palette.success.main,
+                textAlign: 'center',
             }}
             variant='contained'
             onClick={() => {

@@ -40,20 +40,20 @@ export default class Main extends Component {
 
         switch (page) {
             case 'start':
-                return <StartPage goto={this.goto} />;
+                return <StartPage goto={this.goto} data={data}/>;
             case 'operation':
-                return <OperationPage goto={this.goto} />;
+                return <OperationPage goto={this.goto} data={data}/>;
             case 'tickets':
-                return <TicketsPage goto={this.goto} />;
+                return <TicketsPage goto={this.goto} data={data}/>;
             case 'passes':
-                return <PassesPage goto={this.goto} />;
+                return <PassesPage goto={this.goto} data={data}/>;
             case 'helpRechargeableOrPass':
                 break;
             /**
              * Tickets
              */
             case 'single':
-                return <SinglePage goto={this.goto} />;
+                return <SinglePage goto={this.goto} data={data}/>;
             case 'rechargeable':
                 break;
             case 'fullDay':
@@ -73,19 +73,19 @@ export default class Main extends Component {
                 Payment
             */
             case 'nif':
-                return <NifPage goto={this.goto} />;
+                return <NifPage goto={this.goto} data={data}/>;
             case 'methods':
-                return <PaymentMethodPage goto={this.goto} />;
+                return <PaymentMethodPage goto={this.goto} data={data}/>;
             case 'cash':
-                return <CashPage goto={this.goto} />
+                return <CashPage goto={this.goto} data={data}/>
             case 'card':
-                return <CardPage goto={this.goto} />
+                return <CardPage goto={this.goto} data={data}/>
             case 'mbway':
-                return <MBWayPage goto={this.goto} />
+                return <MBWayPage goto={this.goto} data={data}/>
             case 'applepay':
-                return <ApplePayPage goto={this.goto} />
+                return <ApplePayPage goto={this.goto} data={data}/>
             case 'receipt':
-                return <ReceiptPage goto={this.goto} />
+                return <ReceiptPage goto={this.goto} data={data}/>
 
             
 

@@ -11,21 +11,36 @@ class CashPage extends Component {
         super(props);
         this.state = null;
     }
-
-    setNif = (text) => e => {
-        this.setState({ nif: text });
-    }
     
+    changeValues = () => {
+        if (parseInt(this.state.inserted.replace('€')) < parseInt(this.state.total.replace('€'))) {
+            this.setState({
+                total: this.state.total,
+                inserted: String(parseInt(this.state.inserted.replace('€')) + 3) + '€',
+                change: ''
+            })
+
+        }
+        else {
+            this.setState({
+                total: this.state.total,
+                inserted: this.state.inserted,
+                change: String(parseInt(this.state.total.replace('€')) - parseInt(this.state.inserted.replace('€'))) + '€'
+            })
+
+        }
+    }
 
     render() {
-        const { t, goto } = this.props;
+        const { t, goto , data} = this.props;
+        console.log(data);
 
         if (this.state == null) {
             // Do it here so we can use translations
             this.state = {}
             this.setState({
-                total: '',
-                inserted: '',
+                total: data,
+                inserted: '0€',
                 change: ''
             });
             return;
@@ -35,7 +50,7 @@ class CashPage extends Component {
 
         return (
             <>
-            <Grid container>
+            <Grid container onClick={this.changeValues}>
                 <Grid item xs={12}>
                     <Progress
                         bigSteps={[]}
@@ -57,23 +72,20 @@ class CashPage extends Component {
                     <h2>Total:</h2>
                 </Grid>
                 <Grid item xs={8}>
-                    <TextBox></TextBox>
+                    <TextBox text={total}></TextBox>
                 </Grid>
                 <Grid item xs={4} align='center'>
                     <h2>Inserted:</h2>
                 </Grid>
                 <Grid item xs={8}>
-                    <TextBox></TextBox>
+                    <TextBox text={inserted}></TextBox>
                 </Grid>
                 <Grid item xs={4} align='center'>
                     <h2>Change:</h2>
                 </Grid>
                 <Grid item xs={8}>
-                    <TextBox></TextBox>
-                </Grid>
-                <Grid item xs={12} align ='right' bottom='2vh'>
-                    <ContinueButton text={t('payment.nif.continue')} action={goto('receipt')} />
-                </Grid>
+                    <TextBox text={change}></TextBox>
+                </Grid> 
             </Grid>
             </>
         );

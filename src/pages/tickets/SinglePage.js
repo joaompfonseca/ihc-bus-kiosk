@@ -140,17 +140,17 @@ class SinglePage extends Component {
             case 1: return [
                 <RouteInfo
                     details={routes[0]}
-                    action={goto('nif', routes[0])}
+                    action={goto('nif', routes[0]['price'])}
                 />,
                 <RouteInfo
                     details={routes[1]}
-                    action={goto('nif', routes[1])}
+                    action={goto('nif', routes[1]['price'])}
                 />
             ];
             case 2: return [
                 <RouteInfo
                     details={routes[2]}
-                    action={goto('nif', routes[2])}
+                    action={goto('nif', routes[2]['price'])}
                 />
             ];
         }

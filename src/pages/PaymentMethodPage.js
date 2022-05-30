@@ -13,6 +13,9 @@ import '../assets/styles/PaymentMethodPage.css';
 export default function PaymentMethodPage(props) {
 
     const { t } = useTranslation('common');
+
+    const {goto, data} = props;
+    console.log(data) 
     
 
     return (
@@ -31,7 +34,7 @@ export default function PaymentMethodPage(props) {
                     <hr />
                 </Grid>
                 <Grid item xs={6} align='right' paddingRight='2vh'>
-                    <MethodButton text={t('payment.method.cash')} next={props.goto('cash')}>
+                    <MethodButton text={t('payment.method.cash')} next={goto('cash',data)}>
                         <img src={cash} alt='aquela'></img>
                     </MethodButton>
                 </Grid>
