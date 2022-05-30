@@ -119,7 +119,7 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { origin_selected } = this.state;
         if (origin_selected)
-            return <EditButton action={() => { this.setOriginLocationsModal(true); this.setOriginSelected(false); }} />;
+            return <EditButton action={() => { this.setOriginLocationsModal(true); this.setOriginSelected(false); this.setOriginName(t('single.label.origin')); }} />;
         else
             return <AddButton action={() => { this.setOriginLocationsModal(true); }} />;
     }
@@ -128,7 +128,7 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { destination_selected } = this.state;
         if (destination_selected)
-            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(false); }} />
+            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(false); this.setDestinationName(t('single.label.destination')); }} />
         else
             return <AddButton action={() => { this.setDestinationLocationsModal(true); }} />
     }
