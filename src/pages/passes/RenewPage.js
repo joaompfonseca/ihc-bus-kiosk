@@ -2,6 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
 import { Progress, BackButton, ContinueButton, PassInfo } from "../../components";
+import kiosk from '../../assets/images/kiosk/kiosk_sensor.png';
 
 class RenewPage extends Component {
 
@@ -44,8 +45,8 @@ class RenewPage extends Component {
                     {this.props.t('renew.description.scan')}
                 </Typography>
             </Grid>
-            <Grid item xs={6} height='50vh' align='center'>
-                <Typography variant='p'>~Pôr imagem aqui~</Typography>
+            <Grid item xs={6} marginLeft='-10vh'>
+                <img src={kiosk} height='500vh' />
             </Grid>
         </>,
         <>
