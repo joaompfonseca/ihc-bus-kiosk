@@ -128,7 +128,7 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { destination_selected } = this.state;
         if (destination_selected)
-            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(true); }} />
+            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(false); }} />
         else
             return <AddButton action={() => { this.setDestinationLocationsModal(true); }} />
     }
@@ -222,13 +222,13 @@ class SinglePage extends Component {
                 <LocationsModal
                     action={(name) => {this.setOriginName(name); this.setOriginSelected(true); this.setOriginLocationsModal(false); }}
                     location_names={origin_names}
-                    onClose={() => { this.setOriginLocationsModal(false); }}
+                    close={() => { this.setOriginLocationsModal(false); }}
                     open={origin_locations_modal}
                 />
                 <LocationsModal
                     action={(name) => {this.setDestinationName(name); this.setDestinationSelected(true); this.setDestinationLocationsModal(false); }}
                     location_names={destination_names}
-                    onClose={() => { this.setDestinationLocationsModal(false); }}
+                    close={() => { this.setDestinationLocationsModal(false); }}
                     open={destination_locations_modal}
                 />
                 <Grid container alignItems='center'>

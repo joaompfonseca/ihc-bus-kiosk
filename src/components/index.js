@@ -10,3 +10,4 @@ export {default as RouteInfo} from './RouteInfo';
 export {default as PassInfo} from './PassInfo';
 export {default as TextBox} from './TextBox';
 export {default as LocationsModal} from './LocationsModal';
+export {default as CloseButton} from './CloseButton';

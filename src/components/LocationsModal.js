@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Box, Button, Typography, Modal, Grid, Pagination } from '@mui/material';
-import { AddButton } from '.';
+import { Typography, Modal, Grid, Pagination } from '@mui/material';
+import { AddButton, CloseButton } from '.';
 import { withTranslation } from "react-i18next";
 
 class LocationsModal extends Component {
@@ -8,13 +8,17 @@ class LocationsModal extends Component {
     letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
     render() {
-        const { action, onClose, open, location_names, t } = this.props;
+        const { action, close, open, location_names, t } = this.props;
         const valid_letters = location_names.map((name) => (name.charAt(0)));
 
         return (
             <Modal
                 open={open}
-                onClose={() => { onClose(); }}
+                onClose={(event, reason) => {
+                    if (reason && reason == 'backdropClick')
+                        return;
+                    close();
+                }}
             >
                 <Grid container className='info' alignItems='center'
                     style={{
@@ -32,6 +36,9 @@ class LocationsModal extends Component {
                     <Grid item xs={12} align='center'>
                         <h1>{t('single.prompt.location')}</h1>
                         <hr />
+                    </Grid>
+                    <Grid item xs={12} align='right' marginTop='-10vh'>
+                        <CloseButton action={() => { close(); }} />
                     </Grid>
                     <Grid item xs={12} align='center'>
                         <Typography align='center'>
