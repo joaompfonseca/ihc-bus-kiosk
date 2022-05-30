@@ -17,19 +17,24 @@ export default class NumericButton extends Component {
     }
 
     render() {
-        const { action } = this.props;
+        const { action, color, disabled = false } = this.props;
         const { text } = this.state;
 
         return (
             <Button
+                disabled={disabled}
                 style={{
-                    height: '8vh',
-                    width: '15vh',
-                    fontSize: '1.5vh', 
-                    border: "solid"
+                    height: '10vh',
+                    width: '10vh',
+                    fontSize: '1.5vh',
+                    borderWidth: '0.25vh',
+                    borderRadius: '0',
+                    border: 'solid',
+                    borderColor: 'white',
+                    fontSize: '4.5vh'
                 }}
                 variant='contained'
-                color='info'
+                color={color}
                 onClick={() => {
                     action();
                 }}

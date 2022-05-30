@@ -72,8 +72,8 @@ export default class Main extends Component {
                 Payment
             */
             case 'nif':
-                return <NifPage goto={this.goto} />;
-            case 'methods':
+                return <NifPage goto={this.goto} data={data} />;
+            case 'paymentMethods':
                 return <PaymentMethodPage goto={this.goto} />;
             case 'cash':
                 return <CashPage goto={this.goto} />
