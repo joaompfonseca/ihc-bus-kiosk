@@ -13,3 +13,4 @@ export {default as CashBox} from './CashBox';
 export {default as LocationsModal} from './LocationsModal';
 export {default as CloseButton} from './CloseButton';
 export {default as IgnoreButton} from './IgnoreButton';
+export {default as NumericButton} from './NumericButton';

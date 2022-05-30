@@ -1,10 +1,8 @@
 import { Grid, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import { Backspace } from '@mui/icons-material';
 import { Component } from "react";
-import { LargeActionButton, Progress, BackButton, ContinueButton, IgnoreButton, NifBox } from "../components";
+import { Progress, BackButton, ContinueButton, IgnoreButton, NifBox, NumericButton } from "../components";
 import { withTranslation } from "react-i18next";
-import NumericButton from "../components/NumericButton";
 
 class NifPage extends Component {
 
@@ -109,53 +107,3 @@ class NifPage extends Component {
 }
 
 export default withTranslation('common')(NifPage);
-
-
-/*export default function NifPage(props) {
-    const { t } = useTranslation('common');
-
-    setNif = (text) => e => {
-        this.setState({ nif: text });
-    }
-
-    const {nif} = this.state;
-
-    return (
-            <Grid container>
-                <Grid item xs={12}>
-                    <Progress
-                        bigSteps={[]}
-                        smallSteps={[
-                            <Typography fontWeight='bold' color='success.dark'>{t('progress.smallStep.nif')}</Typography>,
-                            <Typography>{t('progress.smallStep.payment')}</Typography>
-                        ]}
-                    />
-                </Grid>
-                <Grid item xs={12} align='center'>
-                    <h1>{t('payment.prompt')}</h1>
-                    <hr />
-                </Grid>
-                <Grid item xs={12} align='center'>
-                    <TextField></TextField>
-                </Grid>
-                <Grid item xs={12} align='center'>
-                    <NumericButton item text='7' align='left'></NumericButton>
-                    <NumericButton item text='8' align='center'></NumericButton>
-                    <NumericButton item text='9' align='right'></NumericButton>
-                    <NumericButton item text='4' align='left'></NumericButton>
-                    <NumericButton item text='5' align='center'></NumericButton>
-                    <NumericButton item text='6' align='right'></NumericButton>
-                    <NumericButton item text='1' align='left'></NumericButton>
-                    <NumericButton item text='2' align='center'></NumericButton>
-                    <NumericButton item text='3' align='right'></NumericButton>
-                    <NumericButton item text='0' align='center'></NumericButton>
-                    <NumericButton item text='Backspace' align='right'></NumericButton>
-                </Grid>
-                <Grid item xs={12} align ='right' bottom='2vh'>
-                    <ContinueButton text={t('payment.continue')} back={props.goto('nif')} />
-                </Grid>
-            </Grid>
-
-    );
-
-}*/
