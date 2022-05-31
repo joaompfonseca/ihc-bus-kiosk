@@ -16,7 +16,7 @@ class RouteInfo extends Component {
             logo, price,
             origin_name, origin_time,
             destination_name, destination_time,
-            buses } = this.props.details;
+            buses, total_time } = this.props.details;
 
         return (
             <Grid container alignItems='top'
@@ -69,7 +69,12 @@ class RouteInfo extends Component {
                         {t('routeInfo.buses') + ' (' + buses.length + '): ' + buses}
                     </Typography>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={5} align='right'>
+                    <Typography variant='h4' color='text.secondary'>
+                        {total_time}
+                    </Typography>
+                </Grid>
+                <Grid item xs={3}>
 
                 </Grid>
             </Grid>

@@ -42,24 +42,27 @@ class SinglePage extends Component {
     routes = [
         {
             logo: transdev,
-            price: '4,00€',
+            price: '3,00€',
             origin_time: '10:05',
-            destination_time: '10:25',
-            buses: ['5002']
+            destination_time: '10:30',
+            buses: ['5002'],
+            total_time: '25min'
         },
         {
             logo: transdev,
             price: '2,00€',
             origin_time: '10:10',
             destination_time: '10:40',
-            buses: ['5005', '5007']
+            buses: ['5005', '5007'],
+            total_time: '30min'
         },
         {
             logo: transdev,
-            price: '3,00€',
+            price: '4,00€',
             origin_time: '10:35',
             destination_time: '10:55',
-            buses: ['5010']
+            buses: ['5010'],
+            total_time: '20min'
         },
     ];
 
@@ -119,7 +122,7 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { origin_selected } = this.state;
         if (origin_selected)
-            return <EditButton action={() => { this.setOriginLocationsModal(true); this.setOriginSelected(false); }} />;
+            return <EditButton action={() => { this.setOriginLocationsModal(true); this.setOriginSelected(false); this.setOriginName(t('single.label.origin')); }} />;
         else
             return <AddButton action={() => { this.setOriginLocationsModal(true); }} />;
     }
@@ -128,7 +131,7 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { destination_selected } = this.state;
         if (destination_selected)
-            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(false); }} />
+            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(false); this.setDestinationName(t('single.label.destination')); }} />
         else
             return <AddButton action={() => { this.setDestinationLocationsModal(true); }} />
     }
@@ -163,9 +166,8 @@ class SinglePage extends Component {
                         ...routes[0]
                     }}
                     action={goto('nif', {
-                        origin_name: origin_name,
-                        destination_name: destination_name,
-                        ...routes[0]
+                        prev_page: 'single',
+                        price: routes[0].price
                     })}
                 />,
                 <RouteInfo
@@ -175,9 +177,8 @@ class SinglePage extends Component {
                         ...routes[1]
                     }}
                     action={goto('nif', {
-                        origin_name: origin_name,
-                        destination_name: destination_name,
-                        ...routes[1]
+                        prev_page: 'single',
+                        price: routes[1].price
                     })}
                 />
             ];
@@ -189,9 +190,8 @@ class SinglePage extends Component {
                         ...routes[2]
                     }}
                     action={goto('nif', {
-                        origin_name: origin_name,
-                        destination_name: destination_name,
-                        ...routes[2]
+                        prev_page: 'single',
+                        price: routes[2].price
                     })}
                 />
             ];
