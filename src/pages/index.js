@@ -6,6 +6,8 @@ export {default as PassesPage} from './PassesPage';
 export {default as ConfirmSinglePage} from './ConfirmSinglePage';
 /* ./tickets */
 export {default as SinglePage} from './tickets/SinglePage';
+/* ./passes */
+export {default as RenewPage} from './passes/RenewPage';
 /*payment*/
 export {default as NifPage} from './NifPage';
 export {default as PaymentMethodPage} from './PaymentMethodPage';

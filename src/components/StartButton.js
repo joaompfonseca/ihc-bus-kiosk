@@ -10,9 +10,11 @@ import { useTranslation } from "react-i18next";
  */
 export default function StartButton(props) {
     const { i18n } = useTranslation('common');
+    const { disabled = false } = props;
 
     return (
         <Button
+            disabled={disabled}
             style={{
                 height: '5vh',
                 width: '20vh',

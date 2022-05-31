@@ -22,19 +22,11 @@ export default function PassesPage(props) {
 					<hr />
 				</Grid>
 				<Grid item xs={4} align='left'>
-					<LargeActionButton text={t('passes.button.monthlyNormal')} next={props.goto('monthlyNormal')} />
+					<LargeActionButton text={t('passes.button.monthly')} next={props.goto('monthly')} disabled />
 				</Grid>
 				<Grid item xs={8}>
 					<Typography variant='p'>
-						{t('passes.description.monthlyNormal')}
-					</Typography>
-				</Grid>
-				<Grid item xs={4} align='left'>
-					<LargeActionButton text={t('passes.button.monthlyStudent')} next={props.goto('monthlyStudent')} />
-				</Grid>
-				<Grid item xs={8}>
-					<Typography variant='p'>
-						{t('passes.description.monthlyStudent')}
+						{t('passes.description.monthly')}
 					</Typography>
 				</Grid>
 				<Grid item xs={12} align='center'>

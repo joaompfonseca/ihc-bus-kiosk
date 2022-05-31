@@ -1,6 +1,8 @@
 import { Component } from 'react';
-import { StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage, PaymentMethodPage, CashPage, CardPage,
-     MBWayPage, ApplePayPage, ReceiptPage } from '.';
+import {
+    StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage, PaymentMethodPage, CashPage, CardPage,
+    MBWayPage, ApplePayPage, ReceiptPage, RenewPage
+} from '.';
 
 export default class Main extends Component {
 
@@ -16,8 +18,7 @@ export default class Main extends Component {
      * rechargeable - RechargeablePage
      * fullDay - FullDayPage
      * recharge - RechargePage
-     * monthlyNormal - MonthlyNormalPage
-     * monthlyStudent - MonthlyStudentPage
+     * monthly - MonthlyPage
      * renew - RenewPage
      * confirmSingle - ConfirmSinglePage
      */
@@ -63,12 +64,10 @@ export default class Main extends Component {
             /**
              * Passes
              */
-            case 'monthlyNormal':
-                break;
-            case 'monthlyStudent':
+            case 'monthly':
                 break;
             case 'renew':
-                break;
+                return <RenewPage goto={this.goto} />;
             /*
                 Payment
             */
@@ -87,7 +86,7 @@ export default class Main extends Component {
             case 'receipt':
                 return <ReceiptPage goto={this.goto} data={data}/>
 
-            
+
 
             default:
             // do nothing
