@@ -8,7 +8,7 @@ class RenewPage extends Component {
 
     constructor(props) {
         super(props);
-        setTimeout(() => { this.setIndex(1); }, 10000); // Pretend to scan the pass
+        setTimeout(() => { this.setIndex(1); }, 7000); // Pretend to scan the pass
     }
 
     state = {
