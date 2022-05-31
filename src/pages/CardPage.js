@@ -20,7 +20,7 @@ class CardPage extends Component {
                 prev_page: prev_page,
                 price: price
             })();
-        }, 5000); // Pretend to pay
+        }, 10000); // Pretend to pay
     }
 
     bigSteps = {
