@@ -1,30 +1,40 @@
-import { Button } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { ArrowRight } from '@mui/icons-material';
+import { Button, Grid } from '@mui/material';
+import { Component } from 'react';
 
-/**
- * props.back - Função que vai para a página anterior
- * props.text - Texto interior do botão
- */
-export default function MethodButton(props) {
-    const theme = useTheme();
+class MethodButton extends Component {
 
-    return (
-        <Button
-            style={{
-                height: '15vh',
-                width: '20vh',
-                fontSize: '1.5vh',
-                justifyContent: 'flex-start',
-                backgroundColor: theme.palette.success.main,
-                textAlign: 'center',
-            }}
-            variant='contained'
-            onClick={() => {
-                props.next();
-            }}
-        >
-            {props.text}
-        </Button>
-    );
+    render() {
+        const { action, disabled = false, image, text = '' } = this.props;
+
+        return (
+            <Button
+                disabled={disabled}
+                style={{
+                    height: '15vh',
+                    width: '20vh',
+                    fontSize: '1.5vh'
+                }
+                }
+                variant='contained'
+                color='primary'
+                onClick={() => {
+                    action();
+                }}
+            >
+                <Grid container align='center'>
+                    <Grid item xs={12} align='center'>
+                        <img src={image} width='100%'></img>
+                    </Grid>
+                    {text !== ''
+                        ? <Grid item xs={12} marginTop='-2.5vh'>
+                            {text}
+                        </Grid>
+                        : <></>
+                    }
+                </Grid>
+            </Button>
+        );
+    }
 }
+
+export default MethodButton;

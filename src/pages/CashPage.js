@@ -1,9 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Component } from "react";
-import { LargeActionButton, Progress, BackButton, ContinueButton, TextBox} from "../components";
+import { LargeActionButton, Progress, BackButton, ContinueButton, CashBox} from "../components";
 import { withTranslation } from "react-i18next";
-import cash from '../assets/images/PaymentMethodPage/cash.png';
+import cash from '../assets/images/PaymentMethodsPage/cash.png';
 import '../assets/styles/CashPage.css';
 
 class CashPage extends Component {
@@ -72,20 +72,23 @@ class CashPage extends Component {
                     <h2>Total:</h2>
                 </Grid>
                 <Grid item xs={8}>
-                    <TextBox text={total}></TextBox>
+                    <CashBox></CashBox>
                 </Grid>
                 <Grid item xs={4} align='center'>
                     <h2>Inserted:</h2>
                 </Grid>
                 <Grid item xs={8}>
-                    <TextBox text={inserted}></TextBox>
+                    <CashBox></CashBox>
                 </Grid>
                 <Grid item xs={4} align='center'>
                     <h2>Change:</h2>
                 </Grid>
                 <Grid item xs={8}>
-                    <TextBox text={change}></TextBox>
-                </Grid> 
+                    <CashBox></CashBox>
+                </Grid>
+                <Grid item xs={12} align ='right' bottom='2vh'>
+                    <ContinueButton text={t('payment.nif.continue')} action={goto('receipt')} />
+                </Grid>
             </Grid>
             </>
         );

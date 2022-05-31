@@ -8,7 +8,7 @@ class RenewPage extends Component {
 
     constructor(props) {
         super(props);
-        setTimeout(() => { this.setIndex(1); }, 5000); // Pretend to scan the pass
+        setTimeout(() => { this.setIndex(1); }, 7000); // Pretend to scan the pass
     }
 
     state = {
@@ -45,8 +45,8 @@ class RenewPage extends Component {
                     {this.props.t('renew.description.scan')}
                 </Typography>
             </Grid>
-            <Grid item xs={6} marginLeft='-10vh'>
-                <img src={kiosk} height='500vh' />
+            <Grid item xs={6}>
+                <img src={kiosk} width='100%' />
             </Grid>
         </>,
         <>
@@ -67,7 +67,7 @@ class RenewPage extends Component {
                 <BackButton text={this.props.t('button.back')} back={() => { this.setIndex(0); }} />
             </Grid>
             <Grid item xs={6} align='right'>
-                <ContinueButton text={this.props.t('button.continue')} action={this.props.goto('nif')} />
+                <ContinueButton text={this.props.t('button.continue')} action={this.props.goto('nif', { prev_page: 'renew', price: this.passes[this.state.index].price })} />
             </Grid>
         </>
     ];

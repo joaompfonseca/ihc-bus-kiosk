@@ -1,6 +1,7 @@
 import { Breadcrumbs, Grid, Button } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { Edit, KeyboardArrowRight } from '@mui/icons-material';
+import '../assets/styles/Progress.css'
 
 /**
  * props.bigSteps     - [0] Título da tarefa anterior
@@ -15,7 +16,7 @@ export default function Progress(props) {
     let index = 0;
 
     return (
-        <Grid container padding={0}>
+        <Grid container className='progress' padding={0}>
             {props.bigSteps.map((bigStep) => (
                 <>
                     <Grid item xs={2}
