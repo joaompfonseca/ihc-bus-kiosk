@@ -10,10 +10,10 @@ export {default as SinglePage} from './tickets/SinglePage';
 export {default as RenewPage} from './passes/RenewPage';
 /*payment*/
 export {default as NifPage} from './NifPage';
-export {default as PaymentMethodPage} from './PaymentMethodPage';
+export {default as PaymentMethodsPage} from './PaymentMethodsPage';
 export {default as CashPage} from './CashPage';
 export {default as CardPage} from './CardPage';
 export {default as MBWayPage} from './MBWayPage';
 export {default as ApplePayPage} from './ApplePayPage';
-export {default as ReceiptPage} from './ReceiptPage';
+export {default as FinishPage} from './FinishPage';
 

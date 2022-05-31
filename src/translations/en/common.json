@@ -2,6 +2,7 @@
     "button": {
         "back": "Back",
         "continue": "Continue",
+        "ignore": "Ignore",
         "payment": "Payment"
     },
     "progress": {
@@ -16,13 +17,9 @@
                 "monthly": "Monthly Pass",
                 "renew": "Renew Pass"
             },
-            "payment": {
-                "cash": "Payment in cash",
-                "card": "Payment with debit/credit card",
-                "mbway": "Payment with MB Way",
-                "apple": "Payment with Apple Pay",
-                "paypal": "Payment with PayPal",
-                "bitcoin": "Payment in Bitcoin"
+            "customization": {
+                "single": "Route Creation",
+                "renew": "Pass Details"
             }
         },
         "smallStep": {
@@ -37,9 +34,9 @@
             "createRoute": "Create route",
             "selectRoute": "Select route",
             "nif": "Insert NIF",
-            "payment": "Select payment method",
+            "paymentMethod": "Payment method",
             "transaction": "Make transaction",
-            "finish": "Finish purchase"
+            "finish": "Finish"
         }
     },
     "routeInfo": {
@@ -120,21 +117,38 @@
             "scan": "Hold your pass near the card reader."
         }
     },
-    "payment": {
-        "nif": {
-            "prompt": "Insert NIF",
-            "continue": "Continue",
-            "label": "Insert NIF here"
+    "nif": {
+        "prompt": {
+            "insert": "Insert NIF"
+        }
+    },
+    "paymentMethods": {
+        "prompt": {
+            "select": "Select payment method"
         },
-
-        "method": {
-            "prompt": "Select payment method",
+        "label": {
+            "total": "Total"
+        },
+        "button": {
             "cash": "Cash",
-            "card": "Credit Card",
+            "card": "Bank Card",
             "mbway": "MB Way",
-            "apple": "Apple Pay",
+            "applepay": "Apple Pay",
             "paypal": "Paypal",
             "bitcoin": "Bitcoin"
+        }
+    },
+    "card": {
+        "prompt": {
+            "pay": "Pay with card"
+        },
+        "description": {
+            "insert": "Insert or scan your card and follow the instructions on the terminal."
+        }
+    },
+    "payment": {
+        "method": {
+            "prompt": "Select payment method"
         },
         "cash": {
             "prompt": "Insert the money"
@@ -149,8 +163,14 @@
             "prompt": "Hold your phone near the sensor"
         }
     },
-    "receipt": {
-        "prompt": "Take the receipt",
-        "thanks": "Thank you and come back soon!"
+    "finish": {
+        "prompt": {
+            "thanks": "Thank you for your purchase"
+        },
+        "description": {
+            "receiptOnly": "Take your receipt",
+            "receiptTicket": "Take your receipt and ticket",
+            "receiptPass": "Take your receipt and pass"
+        }
     }
 }
