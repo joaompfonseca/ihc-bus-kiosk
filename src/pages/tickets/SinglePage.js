@@ -119,7 +119,7 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { origin_selected } = this.state;
         if (origin_selected)
-            return <EditButton action={() => { this.setOriginLocationsModal(true); this.setOriginSelected(false); }} />;
+            return <EditButton action={() => { this.setOriginLocationsModal(true); this.setOriginSelected(false); this.setOriginName(t('single.label.origin')); }} />;
         else
             return <AddButton action={() => { this.setOriginLocationsModal(true); }} />;
     }
@@ -128,7 +128,7 @@ class SinglePage extends Component {
         const { t } = this.props;
         const { destination_selected } = this.state;
         if (destination_selected)
-            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(false); }} />
+            return <EditButton action={() => { this.setDestinationLocationsModal(true); this.setDestinationSelected(false); this.setDestinationName(t('single.label.destination')); }} />
         else
             return <AddButton action={() => { this.setDestinationLocationsModal(true); }} />
     }
@@ -163,9 +163,8 @@ class SinglePage extends Component {
                         ...routes[0]
                     }}
                     action={goto('nif', {
-                        origin_name: origin_name,
-                        destination_name: destination_name,
-                        ...routes[0]
+                        prev_page: 'single',
+                        price: routes[0].price
                     })}
                 />,
                 <RouteInfo
@@ -175,9 +174,8 @@ class SinglePage extends Component {
                         ...routes[1]
                     }}
                     action={goto('nif', {
-                        origin_name: origin_name,
-                        destination_name: destination_name,
-                        ...routes[1]
+                        prev_page: 'single',
+                        price: routes[1].price
                     })}
                 />
             ];
@@ -189,9 +187,8 @@ class SinglePage extends Component {
                         ...routes[2]
                     }}
                     action={goto('nif', {
-                        origin_name: origin_name,
-                        destination_name: destination_name,
-                        ...routes[2]
+                        prev_page: 'single',
+                        price: routes[2].price
                     })}
                 />
             ];

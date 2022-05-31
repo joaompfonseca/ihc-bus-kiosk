@@ -67,7 +67,7 @@ class RenewPage extends Component {
                 <BackButton text={this.props.t('button.back')} back={() => { this.setIndex(0); }} />
             </Grid>
             <Grid item xs={6} align='right'>
-                <ContinueButton text={this.props.t('button.continue')} action={this.props.goto('nif')} />
+                <ContinueButton text={this.props.t('button.continue')} action={this.props.goto('nif', { prev_page: 'renew', price: this.passes[this.state.index].price })} />
             </Grid>
         </>
     ];
