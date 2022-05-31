@@ -11,16 +11,20 @@ import kiosk from '../assets/images/kiosk/kiosk_card.png';
 
 class CardPage extends Component {
 
+    state = {
+        timeout: null
+    }
+
     constructor(props) {
         super(props);
         const { data } = props;
         const { prev_page, price } = data;
-        setTimeout(() => {
+        this.setTimeout(setTimeout(() => {
             this.props.goto('finish', {
                 prev_page: prev_page,
                 price: price
             })();
-        }, 7000); // Pretend to pay
+        }, 7000)); // Pretend to pay
     }
 
     bigSteps = {
@@ -32,6 +36,19 @@ class CardPage extends Component {
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, this.props.goto('operation')],
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, this.props.goto('renew')]
         ]
+    }
+
+    setTimeout = (timeout) => {
+        this.setState({
+            timeout: timeout
+        })
+    }
+
+    clearTimeout = () => {
+        const highestTimeoutId = setTimeout(";");
+        for (var i = 0; i < highestTimeoutId; i++) {
+            clearTimeout(i);
+        }
     }
 
     getBigSteps = () => {
@@ -72,10 +89,13 @@ class CardPage extends Component {
                 </Grid>
                 <Grid container position='absolute' bottom='1vh' width='54.25vh'>
                     <Grid item xs={12} align='left'>
-                        <BackButton text={t('button.back')} back={goto('paymentMethods', {
-                            prev_page: prev_page,
-                            price: price
-                        })} />
+                        <BackButton text={t('button.back')} back={() => {
+                            this.clearTimeout();
+                            goto('paymentMethods', {
+                                prev_page: prev_page,
+                                price: price
+                            })();
+                        }} />
                     </Grid>
                 </Grid>
             </Grid>
