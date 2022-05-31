@@ -47,7 +47,7 @@ class NifPage extends Component {
 
     render() {
         const { t, goto, data } = this.props;
-        const { prev_page } = data;
+        const { prev_page, price } = data;
         const { nif } = this.state;
 
         return (
@@ -58,12 +58,14 @@ class NifPage extends Component {
                             bigSteps={this.getBigSteps()}
                             smallSteps={[
                                 <Typography fontWeight='bold' color='success.dark'>{t('progress.smallStep.nif')}</Typography>,
-                                <Typography>{t('progress.smallStep.payment')}</Typography>
+                                <Typography>{t('progress.smallStep.paymentMethod')}</Typography>,
+                                <Typography>{t('progress.smallStep.transaction')}</Typography>,
+                                <Typography>{t('progress.smallStep.finish')}</Typography>
                             ]}
                         />
                     </Grid>
                     <Grid item xs={12} align='center'>
-                        <h1>{t('payment.nif.prompt')}</h1>
+                        <h1>{t('nif.prompt.insert')}</h1>
                         <hr />
                     </Grid>
                     <Grid item xs={12} align='center'>
@@ -94,10 +96,16 @@ class NifPage extends Component {
                             <BackButton text={t('button.back')} back={goto(prev_page)} />
                         </Grid>
                         <Grid item xs={4} align='center'>
-                            <IgnoreButton action={goto('paymentMethods')} />
+                            <IgnoreButton action={goto('paymentMethods', {
+                                prev_page: prev_page,
+                                price: price
+                            })} />
                         </Grid>
                         <Grid item xs={4} align='right'>
-                            <ContinueButton text={t('button.continue')} action={goto('paymentMethods')} />
+                            <ContinueButton text={t('button.continue')} action={goto('paymentMethods', {
+                                prev_page: prev_page,
+                                price: price
+                            })} />
                         </Grid>
                     </Grid>
                 </Grid>

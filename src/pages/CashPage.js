@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Component } from "react";
 import { LargeActionButton, Progress, BackButton, ContinueButton, CashBox} from "../components";
 import { withTranslation } from "react-i18next";
-import cash from '../assets/images/PaymentMethodPage/cash.png';
+import cash from '../assets/images/PaymentMethodsPage/cash.png';
 import '../assets/styles/CashPage.css';
 
 class CashPage extends Component {

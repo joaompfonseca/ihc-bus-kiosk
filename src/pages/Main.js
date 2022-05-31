@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import {
-    StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage, PaymentMethodPage, CashPage, CardPage,
-    MBWayPage, ApplePayPage, ReceiptPage, RenewPage
+    StartPage, OperationPage, TicketsPage, PassesPage, SinglePage, NifPage, PaymentMethodsPage, CashPage, CardPage,
+    MBWayPage, ApplePayPage, FinishPage, RenewPage
 } from '.';
 
 export default class Main extends Component {
@@ -21,6 +21,7 @@ export default class Main extends Component {
      * monthly - MonthlyPage
      * renew - RenewPage
      * confirmSingle - ConfirmSinglePage
+     * ... BIG TODO
      */
     state = {
         page: 'start',
@@ -74,17 +75,17 @@ export default class Main extends Component {
             case 'nif':
                 return <NifPage goto={this.goto} data={data} />;
             case 'paymentMethods':
-                return <PaymentMethodPage goto={this.goto} />;
+                return <PaymentMethodsPage goto={this.goto} data={data} />;
             case 'cash':
                 return <CashPage goto={this.goto} />
             case 'card':
-                return <CardPage goto={this.goto} />
+                return <CardPage goto={this.goto} data={data} />
             case 'mbway':
                 return <MBWayPage goto={this.goto} />
             case 'applepay':
                 return <ApplePayPage goto={this.goto} />
-            case 'receipt':
-                return <ReceiptPage goto={this.goto} />
+            case 'finish':
+                return <FinishPage goto={this.goto} data={data} />
 
 
 

@@ -163,7 +163,8 @@ class SinglePage extends Component {
                         ...routes[0]
                     }}
                     action={goto('nif', {
-                        prev_page: 'single'
+                        prev_page: 'single',
+                        price: routes[0].price
                     })}
                 />,
                 <RouteInfo
@@ -173,7 +174,8 @@ class SinglePage extends Component {
                         ...routes[1]
                     }}
                     action={goto('nif', {
-                        prev_page: 'single'
+                        prev_page: 'single',
+                        price: routes[1].price
                     })}
                 />
             ];
@@ -185,7 +187,8 @@ class SinglePage extends Component {
                         ...routes[2]
                     }}
                     action={goto('nif', {
-                        prev_page: 'single'
+                        prev_page: 'single',
+                        price: routes[2].price
                     })}
                 />
             ];
