@@ -1,3 +1,176 @@
 {
-    
+    "button": {
+        "back": "Voltar",
+        "continue": "Continuar",
+        "ignore": "Ignorar",
+        "payment": "Pagar"
+    },
+    "progress": {
+        "bigStep": {
+            "tickets": {
+                "single": "Bilhete Único",
+                "rechargeable": "Bilhete Recarregável",
+                "fullDay": "Bilhete de Dia Inteiro",
+                "recharge": "Recarregar Bilhete"
+            },
+            "passes": {
+                "monthly": "Passe Mensal",
+                "renew": "Renovar Passe"
+            },
+            "customization": {
+                "single": "Criar Rota",
+                "renew": "Detalhes do Passe"
+            }
+        },
+        "smallStep": {
+            "passes": {
+                "renew": {
+                    "scan": "Ler passe",
+                    "details": "Detalhes do passe"
+                }
+            },
+            "operation": "Selecionar operação",
+            "type": "Selecionar tipo",
+            "createRoute": "Criar rota",
+            "selectRoute": "Selecionar rota",
+            "nif": "Inserir NIF",
+            "paymentMethod": "Método de pagamento",
+            "transaction": "Realizar transação",
+            "finish": "Finalizar"
+        }
+    },
+    "routeInfo": {
+        "buses": "Autocarros"
+    },
+    "passInfo": {
+        "passName": {
+            "monthlyStudent": "Passe Mensal de Estudante"
+        },
+        "buses": "Autocarros"
+    },
+    "operation": {
+        "prompt": {
+            "basic": "Selecionar operação",
+            "help": "Selecionar ajuda"
+        },
+        "button": {
+            "tickets": "Bilhetes",
+            "passes": "Passes",
+            "helpRechargeableOrPass": "Recarregável ou Passe ?"
+        },
+        "description": {
+            "tickets": "Bilhetes permitem-lhe viajar uma vez entre duas localizações selecionadas, ou por um dia inteiro em áreas selecionadas.",
+            "passes": "Passes permitem-lhe viajar quantas vezes quiser em rotas selecionadas, durante um mês inteiro e a um preço fixo.",
+            "helpRechargeableOrPass": "Descubra se é mais barato para si um bilhete recarregável ou um passe mensal."
+        }
+    },
+    "tickets": {
+        "prompt": {
+            "buy": "Comprar bilhete",
+            "recharge": "Recarregar bilhete"
+        },
+        "button": {
+            "single": "Único",
+            "rechargeable": "Recarregável",
+            "fullDay": "Dia Inteiro",
+            "recharge": "Recarregar"
+        },
+        "description": {
+            "single": "Este bilhete permite-lhe viajar uma vez entre duas localizações selecionadas.",
+            "rechargeable": "Este bilhete contém vários bilhetes únicos do mesmo tipo e pode ser recarregado com mais.",
+            "fullDay": "Este bilhete permite-lhe viajar quantas vezes quiser em áreas selecionadas, por um ou mais dias inteiros.",
+            "recharge": "Aqui pode recarregar o seu bilhete recarregável."
+        }
+    },
+    "passes": {
+        "prompt": {
+            "buy": "Comprar passe",
+            "renew": "Renovar passe"
+        },
+        "button": {
+            "monthly": "Mensal",
+            "renew": "Renovar"
+        },
+        "description": {
+            "monthly": "Este passe permite-lhe viajar quantas vezes quiser em rotas selecionadas, durante o mês inteiro.",
+            "renew": "Aqui pode renovar o seu passe mensal."
+        }
+    },
+    "single": {
+        "prompt": {
+            "create": "Criar rota",
+            "location": "Selecionar localização",
+            "select": "Selecionar rota"
+        },
+        "label": {
+            "origin": "Adicionar origem",
+            "destination": "Adicionar destino",
+            "date": "Data de partida"
+        }
+    },
+    "renew": {
+        "prompt": {
+            "scan": "Leia o seu passe",
+            "details": "Detalhes do seu passe"
+        },
+        "description": {
+            "scan": "Segure o seu passe perto do leitor de cartões."
+        }
+    },
+    "nif": {
+        "prompt": {
+            "insert": "Insira NIF"
+        }
+    },
+    "paymentMethods": {
+        "prompt": {
+            "select": "Selecione metodo de pagamento."
+        },
+        "label": {
+            "total": "Total"
+        },
+        "button": {
+            "cash": "Numerário",
+            "card": "Cartão",
+            "mbway": "MB Way",
+            "applepay": "Apple Pay",
+            "paypal": "Paypal",
+            "bitcoin": "Bitcoin"
+        }
+    },
+    "card": {
+        "prompt": {
+            "pay": "Pagar com cartão"
+        },
+        "description": {
+            "insert": "Insira ou leia o seu cartão e siga as instruções no terminal."
+        }
+    },
+    "payment": {
+        "method": {
+            "prompt": "Selecione método de pagamento"
+        },
+        "cash": {
+            "prompt": "Insert the money"
+        },
+        "mbway": {
+            "prompt": "Read the QR Code"
+        },
+        "card": {
+            "prompt": "Insert the card and follow the instructions"
+        },
+        "applepay": {
+            "prompt": "Hold your phone near the sensor"
+        }
+    },
+    "finish": {
+        "prompt": {
+            "thanks": "Obrigado pela sua compra"
+        },
+        "description": {
+            "receiptOnly": "Recolha o recibo",
+            "receiptTicket": "Recolha o recibo e o bilhete",
+            "receiptPass": "Recolha o recibo e o passe"
+        }
+    }
 }

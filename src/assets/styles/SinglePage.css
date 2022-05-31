@@ -1,0 +1,11 @@
+.pagination button {
+    height: 5vh;
+    width: 5vh;
+    font-size: 2vh;
+    background-color: cornflowerblue;
+}
+
+.css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+    
+    background-color: rgb(48, 104, 226) !important;
+}

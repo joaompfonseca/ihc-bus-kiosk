@@ -3,6 +3,7 @@ import { Component } from "react";
 import { withTranslation } from "react-i18next";
 import { Progress, BackButton, ContinueButton, BasicDatePicker, AddButton, EditButton, RouteInfo, LocationsModal } from "../../components";
 import transdev from '../../assets/images/logos/transdev.jpg';
+import '../../assets/styles/SinglePage.css';
 
 class SinglePage extends Component {
 
@@ -204,7 +205,7 @@ class SinglePage extends Component {
         if (!origin_selected || !destination_selected)
             return;
 
-        return <Pagination count={2} onChange={this.routesPageChange} />;
+        return <Pagination className='pagination' count={2} onChange={this.routesPageChange} />;
     }
 
     routesPageChange = (event, page) => {
@@ -276,7 +277,8 @@ class SinglePage extends Component {
                     </Grid>
                     <Grid item xs={12}
                         display='flex'
-                        justifyContent='center'>
+                        justifyContent='center'
+                        marginTop='1vh'>
                         {this.getRoutesPagination()}
                     </Grid>
                 </Grid>
