@@ -45,8 +45,8 @@ class RenewPage extends Component {
                     {this.props.t('renew.description.scan')}
                 </Typography>
             </Grid>
-            <Grid item xs={6} marginLeft='-10vh'>
-                <img src={kiosk} height='500vh' />
+            <Grid item xs={6}>
+                <img src={kiosk} width='100%' />
             </Grid>
         </>,
         <>

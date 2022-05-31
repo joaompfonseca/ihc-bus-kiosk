@@ -28,8 +28,8 @@ class FinishPage extends Component {
                     {this.props.t('finish.description.receiptTicket')}
                 </Typography>
             </Grid>
-            <Grid item xs={6} marginLeft='-10vh'>
-                <img src={kiosk_receipt_ticket_pass} height='500vh' />
+            <Grid item xs={6}>
+                <img src={kiosk_receipt_ticket_pass} width='100%'/>
             </Grid>
         </>,
         renew: <>
@@ -38,8 +38,8 @@ class FinishPage extends Component {
                     {this.props.t('finish.description.receiptOnly')}
                 </Typography>
             </Grid>
-            <Grid item xs={6} marginLeft='-10vh'>
-                <img src={kiosk_receipt} height='500vh' />
+            <Grid item xs={6}>
+                <img src={kiosk_receipt}  width='100%' />
             </Grid>
         </>
     }

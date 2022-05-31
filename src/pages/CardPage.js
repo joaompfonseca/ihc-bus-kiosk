@@ -67,8 +67,8 @@ class CardPage extends Component {
                         {this.props.t('card.description.insert')}
                     </Typography>
                 </Grid>
-                <Grid item xs={6} marginLeft='-10vh'>
-                    <img src={kiosk} height='500vh' />
+                <Grid item xs={6}>
+                    <img src={kiosk} width='100%' />
                 </Grid>
                 <Grid container position='absolute' bottom='1vh' width='54.25vh'>
                     <Grid item xs={12} align='left'>
