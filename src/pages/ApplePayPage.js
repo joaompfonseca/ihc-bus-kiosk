@@ -1,12 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Component } from "react";
-import { LargeActionButton, Progress, BackButton, ContinueButton} from "../components";
-import { withTranslation } from "react-i18next";
-import NumericButton from "../components/NumericButton";
-import MethodButton from "../components/MethodButton";
-import applepay from '../assets/images/ApplePayPage/applepay.png';
-import nfc from '../assets/images/ApplePayPage/phonenfc.jpg';
+import { LargeButton, Progress, BackButton, ContinueButton} from "../components";
+import applepay from '../assets/images/PaymentMethod/applepay.png';
+import nfc from '../assets/images/PaymentMethod/applepay.png';
 import '../assets/styles/ApplePayPage.css';
 
 

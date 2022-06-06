@@ -50,18 +50,18 @@
     },
     "operation": {
         "prompt": {
-            "basic": "Seleccione la operación",
-            "help": "Seleccione la ayuda"
+            "operation": "Seleccione la operación",
+            "assistance": "Seleccione la ayuda"
         },
         "button": {
             "tickets": "Billetes",
             "passes": "Passes",
-            "helpRechargeableOrPass": "Recargable o Pase ?"
+            "assistanceRechargeableOrPass": "Recargable o Pase ?"
         },
         "description": {
             "tickets": "Los billetes le permiten viajar una vez entre dos lugares seleccionados, o un día entero en zonas seleccionadas.",
             "passes": "Los pases le permiten viajar todo lo que quiera en rutas seleccionadas, durante todo un mes y a un precio fijo.",
-            "helpRechargeableOrPass": "Averigüe si le resulta más barato un billete recargable o un abono mensual."
+            "assistanceRechargeableOrPass": "Averigüe si le resulta más barato un billete recargable o un abono mensual."
         }
     },
     "tickets": {

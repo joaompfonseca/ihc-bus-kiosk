@@ -8,18 +8,14 @@ class MethodButton extends Component {
 
         return (
             <Button
-                disabled={disabled}
                 style={{
+                    backgroundColor: '#1976d2',
                     height: '15vh',
-                    width: '20vh',
-                    fontSize: '1.5vh'
-                }
-                }
-                variant='contained'
-                color='primary'
-                onClick={() => {
-                    action();
+                    width: '20vh'
                 }}
+                disabled={disabled}
+                variant='contained'
+                onClick={() => { action(); }}
             >
                 <Grid container align='center'>
                     <Grid item xs={12} align='center'>

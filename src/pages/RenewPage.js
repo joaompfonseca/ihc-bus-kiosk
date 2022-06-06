@@ -1,8 +1,8 @@
 import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { Progress, BackButton, ContinueButton, PassInfo } from "../../components";
-import kiosk from '../../assets/images/kiosk/kiosk_sensor.png';
+import { ContinueButton, Progress, BackButton, PassInfo } from "../components";
+import imgKioskSensor from '../assets/images/Kiosk/sensor.png';
 
 class RenewPage extends Component {
 
@@ -27,8 +27,8 @@ class RenewPage extends Component {
     ];
 
     prompts = [
-        <h1>{this.props.t('renew.prompt.scan')}</h1>,
-        <h1>{this.props.t('renew.prompt.details')}</h1>
+        <Typography variant='h1' fontWeight='bold'>{this.props.t('renew.prompt.scan')}</Typography>,
+        <Typography variant='h1' fontWeight='bold'>{this.props.t('renew.prompt.details')}</Typography>
     ];
 
     passes = [{
@@ -41,16 +41,16 @@ class RenewPage extends Component {
     contents = [
         <>
             <Grid item xs={6}>
-                <Typography variant='h5'>
+                <Typography variant='h3'>
                     {this.props.t('renew.description.scan')}
                 </Typography>
             </Grid>
             <Grid item xs={6}>
-                <img src={kiosk} width='100%' />
+                <img src={imgKioskSensor} alt='kioskSensor' width='100%' />
             </Grid>
         </>,
         <>
-            <Grid item xs={12} className='info' >
+            <Grid item xs={12}>
                 <PassInfo info={this.passes[0]} />
             </Grid>
         </>
@@ -59,21 +59,28 @@ class RenewPage extends Component {
     footers = [
         <>
             <Grid item xs={12} align='left'>
-                <BackButton text={this.props.t('button.back')} back={this.props.goto('passes')} />
+                <BackButton text={this.props.t('button.back')} action={() => { this.clearTimeout(); this.props.goto('passes'); }} />
             </Grid>
         </>,
         <>
             <Grid item xs={6} align='left'>
-                <BackButton text={this.props.t('button.back')} back={() => { this.setIndex(0); }} />
+                <BackButton text={this.props.t('button.back')} action={() => { this.setIndex(0); }} />
             </Grid>
             <Grid item xs={6} align='right'>
-                <ContinueButton text={this.props.t('button.continue')} action={this.props.goto('nif', { prev_page: 'renew', price: this.passes[this.state.index].price })} />
+                <ContinueButton text={this.props.t('button.continue')} action={() => { this.props.goto('nif', { prev_page: 'renew', price: this.passes[0].price }); }} />
             </Grid>
         </>
     ];
 
+    clearTimeout = () => {
+        const highestTimeoutId = setTimeout(() => {});
+        for (var i = 0; i < highestTimeoutId; i++) {
+            clearTimeout(i);
+        }
+    }
+
     setIndex = (index) => {
-        if (index == 0) setTimeout(() => { this.setIndex(1); }, 5000); // Pretend to scan the pass
+        if (index === 0) setTimeout(() => { this.setIndex(1); }, 5000); // Pretend to scan the pass
         this.setState({
             index: index
         });
@@ -112,7 +119,7 @@ class RenewPage extends Component {
                     <Grid item xs={12}>
                         <Progress
                             bigSteps={[
-                                [<Typography fontWeight='bold'>{t('progress.bigStep.passes.renew')}</Typography>, goto('operation')]
+                                [<Typography fontWeight='bold'>{t('progress.bigStep.passes.renew')}</Typography>, () => { this.clearTimeout(); goto('operation'); }]
                             ]}
                             smallSteps={this.getSmallSteps()}
                         />

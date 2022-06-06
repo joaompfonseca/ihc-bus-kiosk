@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { Typography, Modal, Grid, Pagination } from '@mui/material';
-import { AddButton, CloseButton } from '.';
+import { Component } from 'react';
 import { withTranslation } from "react-i18next";
+import { Grid, Modal, Pagination, Typography } from '@mui/material';
+import { AddButton, CloseButton } from '.';
 
 class LocationsModal extends Component {
 
     letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-    render() {
+    render = () => {
         const { action, close, open, location_names, t } = this.props;
         const valid_letters = location_names.map((name) => (name.charAt(0)));
 
@@ -15,12 +15,12 @@ class LocationsModal extends Component {
             <Modal
                 open={open}
                 onClose={(event, reason) => {
-                    if (reason && reason == 'backdropClick')
+                    if (reason && reason === 'backdropClick')
                         return;
                     close();
                 }}
             >
-                <Grid container className='info' alignItems='center'
+                <Grid container className='noDivPadding' alignItems='center'
                     style={{
                         width: '50vh',
                         borderRadius: '1vh',
@@ -33,12 +33,14 @@ class LocationsModal extends Component {
                         left: '50%',
                         transform: 'translate(-50%, -50%)'
                     }}>
-                    <Grid item xs={12} align='center'>
-                        <h1>{t('single.prompt.location')}</h1>
-                        <hr />
+                    <Grid item xs={9.5} align='center'>
+                        <Typography variant='h1' fontWeight='bold'>{t('single.prompt.location')}</Typography>
                     </Grid>
-                    <Grid item xs={12} align='right' marginTop='-10vh'>
+                    <Grid item xs={2.5} align='right'>
                         <CloseButton action={() => { close(); }} />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <hr />
                     </Grid>
                     <Grid item xs={12} align='center'>
                         <Typography align='center'>
@@ -52,11 +54,11 @@ class LocationsModal extends Component {
                     </Grid>
                     {location_names.map((name) => (
                         <Grid container alignItems='center' marginBottom='1vh'>
-                            <Grid item xs={2}>
+                            <Grid item xs={2.5} align='left'>
                                 <AddButton action={() => action(name)} />
                             </Grid>
-                            <Grid item xs={10}>
-                                <Typography variant='p' align='left'>
+                            <Grid item xs={9.5}>
+                                <Typography variant='h3' align='left'>
                                     {name}
                                 </Typography>
                             </Grid>
@@ -72,4 +74,5 @@ class LocationsModal extends Component {
         );
     }
 }
+
 export default withTranslation('common')(LocationsModal);

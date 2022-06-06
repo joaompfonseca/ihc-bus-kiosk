@@ -1,45 +1,35 @@
-import { Grid, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
 import { Component } from "react";
-import { LargeActionButton, Progress, BackButton, ContinueButton } from "../components";
+import { Grid, Typography } from "@mui/material";
 import { withTranslation } from "react-i18next";
-import NumericButton from "../components/NumericButton";
-import MethodButton from "../components/MethodButton";
-import applepay from '../assets/images/ApplePayPage/applepay.png';
-import receipt from '../assets/images/ReceiptPage/receipt.jpg';
-import '../assets/styles/ReceiptPage.css';
-
-import kiosk_receipt from '../assets/images/kiosk/kiosk_receipt.png';
-import kiosk_receipt_ticket_pass from '../assets/images/kiosk/kiosk_receipt_ticket_pass.png';
-
-
+import imgKioskReceipt from '../assets/images/Kiosk/receipt.png';
+import imgKioskReceiptTicketPass from '../assets/images/Kiosk/receipt_ticket_pass.png';
 
 class FinishPage extends Component {
 
     constructor(props) {
         super(props);
-        setTimeout(() => { this.props.goto('start')(); }, 5000);
+        setTimeout(() => { this.props.goto('start'); }, 5000);
     }
 
     contents = {
         single: <>
             <Grid item xs={6}>
-                <Typography variant='h5'>
+                <Typography variant='h3'>
                     {this.props.t('finish.description.receiptTicket')}
                 </Typography>
             </Grid>
             <Grid item xs={6}>
-                <img src={kiosk_receipt_ticket_pass} width='100%'/>
+                <img src={imgKioskReceiptTicketPass} alt='kioskReceiptTicketPass' width='100%'/>
             </Grid>
         </>,
         renew: <>
             <Grid item xs={6}>
-                <Typography variant='h5'>
+                <Typography variant='h3'>
                     {this.props.t('finish.description.receiptOnly')}
                 </Typography>
             </Grid>
             <Grid item xs={6}>
-                <img src={kiosk_receipt}  width='100%' />
+                <img src={imgKioskReceipt} alt='kioskReceipt' width='100%' />
             </Grid>
         </>
     }
@@ -51,9 +41,8 @@ class FinishPage extends Component {
         return contents[prev_page];
     }
 
-    render() {
-        const { t, goto, data } = this.props;
-        const { prev_page, price } = data;
+    render = () => {
+        const { t } = this.props;
 
         return (
             <Grid container alignItems='center'>
@@ -61,7 +50,7 @@ class FinishPage extends Component {
 
                 </Grid>
                 <Grid item xs={12} align='center'>
-                    <h1>{t('finish.prompt.thanks')}</h1>
+                    <Typography variant='h1' fontWeight='bold'>{t('finish.prompt.thanks')}</Typography>
                     <hr />
                 </Grid>
                 {this.getContent()}

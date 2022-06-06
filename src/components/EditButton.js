@@ -1,24 +1,27 @@
+import { Component } from 'react';
 import { Button } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 
-/**
- * props.action - Função que vai excutar a ação pretendida
- */
-export default function EditButton(props) {
-    return (
-        <Button
-            style={{
-                height: '5vh',
-                width: '5vh',
-                fontSize: '4.5vh'
-            }}
-            variant='contained'
-            color='info'
-            onClick={() => {
-                props.action();
-            }}
-        >
-            <Edit />
-        </Button>
-    );
+class EditButton extends Component {
+
+    render = () => {
+        const { action, disabled = false } = this.props;
+
+        return (
+            <Button
+                style={{
+                    backgroundColor: '#1976d2',
+                    height: '5vh',
+                    minWidth: '7.5vh'
+                }}
+                disabled={disabled}
+                variant='contained'
+                onClick={() => { action(); }}
+            >
+                <Edit style={{ fontSize: '3vh' }} />
+            </Button>
+        );
+    }
 }
+
+export default EditButton;

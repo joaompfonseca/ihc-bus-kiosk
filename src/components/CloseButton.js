@@ -1,27 +1,27 @@
+import { Component } from 'react';
 import { Button } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { Close } from '@mui/icons-material';
 
-/**
- * props.action - Função que vai excutar a ação pretendida
- */
-export default function CloseButton(props) {
-    const theme = useTheme();
+class CloseButton extends Component {
 
-    return (
-        <Button
-            style={{
-                height: '5vh',
-                width: '5vh',
-                fontSize: '4.5vh',
-                backgroundColor: theme.palette.warning.main
-            }}
-            variant='contained'
-            onClick={() => {
-                props.action();
-            }}
-        >
-            <Close />
-        </Button>
-    );
+    render = () => {
+        const { action, disabled = false } = this.props;
+
+        return (
+            <Button
+                style={{
+                    backgroundColor: '#ed6c02',
+                    height: '5vh',
+                    minWidth: '7.5vh'
+                }}
+                disabled={disabled}
+                variant='contained'
+                onClick={() => { action(); }}
+            >
+                <Close style={{ fontSize: '4vh' }} />
+            </Button>
+        );
+    }
 }
+
+export default CloseButton;

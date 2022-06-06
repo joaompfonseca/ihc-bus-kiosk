@@ -1,9 +1,9 @@
 import { Grid, Typography, Pagination } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { Progress, BackButton, ContinueButton, BasicDatePicker, AddButton, EditButton, RouteInfo, LocationsModal } from "../../components";
-import transdev from '../../assets/images/logos/transdev.jpg';
-import '../../assets/styles/SinglePage.css';
+import { AddButton, BackButton, BasicDatePicker, EditButton, LocationsModal, Progress, RouteInfo } from "../components";
+import imgTransdev from '../assets/images/RouteCompany/transdev.png';
+import '../assets/styles/SinglePage.css';
 
 class SinglePage extends Component {
 
@@ -42,7 +42,7 @@ class SinglePage extends Component {
 
     routes = [
         {
-            logo: transdev,
+            logo: imgTransdev,
             price: '3,00€',
             origin_time: '10:05',
             destination_time: '10:30',
@@ -50,7 +50,7 @@ class SinglePage extends Component {
             total_time: '25min'
         },
         {
-            logo: transdev,
+            logo: imgTransdev,
             price: '2,00€',
             origin_time: '10:10',
             destination_time: '10:40',
@@ -58,7 +58,7 @@ class SinglePage extends Component {
             total_time: '30min'
         },
         {
-            logo: transdev,
+            logo: imgTransdev,
             price: '4,00€',
             origin_time: '10:35',
             destination_time: '10:55',
@@ -145,7 +145,7 @@ class SinglePage extends Component {
             return;
 
         return <>
-            <h1>{t('single.prompt.select')}</h1>
+            <Typography variant='h1' fontWeight='bold'>{t('single.prompt.select')}</Typography>
             <hr />
         </>;
     }
@@ -166,10 +166,12 @@ class SinglePage extends Component {
                         destination_name: destination_name,
                         ...routes[0]
                     }}
-                    action={goto('nif', {
-                        prev_page: 'single',
-                        price: routes[0].price
-                    })}
+                    action={() => {
+                        goto('nif', {
+                            prev_page: 'single',
+                            price: routes[0].price
+                        });
+                    }}
                 />,
                 <RouteInfo
                     details={{
@@ -177,10 +179,12 @@ class SinglePage extends Component {
                         destination_name: destination_name,
                         ...routes[1]
                     }}
-                    action={goto('nif', {
-                        prev_page: 'single',
-                        price: routes[1].price
-                    })}
+                    action={() => {
+                        goto('nif', {
+                            prev_page: 'single',
+                            price: routes[1].price
+                        });
+                    }}
                 />
             ];
             case 2: return [
@@ -190,10 +194,12 @@ class SinglePage extends Component {
                         destination_name: destination_name,
                         ...routes[2]
                     }}
-                    action={goto('nif', {
-                        prev_page: 'single',
-                        price: routes[2].price
-                    })}
+                    action={() => {
+                        goto('nif', {
+                            prev_page: 'single',
+                            price: routes[2].price
+                        });
+                    }}
                 />
             ];
         }
@@ -221,13 +227,13 @@ class SinglePage extends Component {
         return (
             <>
                 <LocationsModal
-                    action={(name) => {this.setOriginName(name); this.setOriginSelected(true); this.setOriginLocationsModal(false); }}
+                    action={(name) => { this.setOriginName(name); this.setOriginSelected(true); this.setOriginLocationsModal(false); }}
                     location_names={origin_names}
                     close={() => { this.setOriginLocationsModal(false); }}
                     open={origin_locations_modal}
                 />
                 <LocationsModal
-                    action={(name) => {this.setDestinationName(name); this.setDestinationSelected(true); this.setDestinationLocationsModal(false); }}
+                    action={(name) => { this.setDestinationName(name); this.setDestinationSelected(true); this.setDestinationLocationsModal(false); }}
                     location_names={destination_names}
                     close={() => { this.setDestinationLocationsModal(false); }}
                     open={destination_locations_modal}
@@ -236,55 +242,48 @@ class SinglePage extends Component {
                     <Grid item xs={12}>
                         <Progress
                             bigSteps={[
-                                [<Typography fontWeight='bold'>{t('progress.bigStep.tickets.single')}</Typography>, goto('operation')]
+                                [<Typography fontWeight='bold'>{t('progress.bigStep.tickets.single')}</Typography>, () => { goto('operation'); }]
                             ]}
                             smallSteps={this.getSmallSteps()}
                         />
                     </Grid>
                     <Grid item xs={12} align='center'>
-                        <h1>{t('single.prompt.create')}</h1>
+                        <Typography variant='h1' fontWeight='bold'>{t('single.prompt.create')}</Typography>
                         <hr />
                     </Grid>
                     <Grid item xs={2} align='left'>
                         {this.getOriginButton()}
                     </Grid>
                     <Grid item xs={10}>
-                        <Typography className='origin' variant='p'>
-                            {origin_name}
-                        </Typography>
+                        <Typography variant='h3'>{origin_name}</Typography>
                     </Grid>
                     <Grid item xs={2} align='left'>
                         {this.getDestinationButton()}
                     </Grid>
                     <Grid item xs={10}>
-                        <Typography className='destination' variant='p'>
-                            {destination_name}
-                        </Typography>
+                        <Typography variant='h3'>{destination_name}</Typography>
                     </Grid>
                     <Grid item xs={4}>
-                        <Typography variant='p'>
-                            {t('single.label.date')}
-                        </Typography>
+                        <Typography variant='h3'>{t('single.label.date')}</Typography>
                     </Grid>
-                    <Grid item xs={8} className='date-picker'>
+                    <Grid item xs={8}>
                         <BasicDatePicker />
                     </Grid>
                     <Grid item xs={12} align='center'>
                         {this.getRoutesPrompt()}
                     </Grid>
-                    <Grid item xs={12} className='info' height='30vh'>
+                    <Grid item xs={12}>
                         {this.getRoutes()}
                     </Grid>
                     <Grid item xs={12}
                         display='flex'
-                        justifyContent='center'
-                        marginTop='1vh'>
+                        justifyContent='center'>
                         {this.getRoutesPagination()}
                     </Grid>
                 </Grid>
                 <Grid container position='absolute' bottom='1vh' width='54.25vh'>
                     <Grid item xs={12} align='left'>
-                        <BackButton text={t('button.back')} back={goto('tickets')} />
+                        <BackButton text={t('button.back')} action={() => { goto('tickets'); }} />
                     </Grid>
                 </Grid>
             </>

@@ -2,7 +2,7 @@ import { Grid, Typography } from "@mui/material";
 import { KeyboardArrowRight } from "@mui/icons-material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { LargeActionButton, Progress, BackButton, ContinueButton } from "../components";
+import { LargeButton, Progress, BackButton, ContinueButton } from "../components";
 
 class ConfirmSinglePage extends Component {
 

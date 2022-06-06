@@ -50,18 +50,18 @@
     },
     "operation": {
         "prompt": {
-            "basic": "Sélectionner l'opération",
-            "help": "Sélectionnez Aide"
+            "operation": "Sélectionner l'opération",
+            "assistance": "Sélectionnez Aide"
         },
         "button": {
             "tickets": "Billets ",
             "passes": "Passes",
-            "helpRechargeableOrPass": "Rechargeable ou passe ?"
+            "assistanceRechargeableOrPass": "Rechargeable ou passe ?"
         },
         "description": {
-            "tickets": "Les billets vous permettent de voyager une fois entre deux endroits sélectionnés, ou une journée entière dans des zones sélectionnées..",
-            "passes": "Les abonnements vous permettent de voyager autant que vous le souhaitez sur des itinéraires sélectionnés, pendant un mois entier et à un prix fixe..",
-            "helpRechargeableOrPass": "Découvrez si un billet rechargeable ou un abonnement mensuel est plus avantageux pour vous.."
+            "tickets": "Les billets vous permettent de voyager une fois entre deux endroits sélectionnés, ou une journée entière dans des zones sélectionnées.",
+            "passes": "Les abonnements vous permettent de voyager autant que vous le souhaitez sur des itinéraires sélectionnés, pendant un mois entier et à un prix fixe.",
+            "assistanceRechargeableOrPass": "Découvrez si un billet rechargeable ou un abonnement mensuel est plus avantageux pour vous."
         }
     },
     "tickets": {
@@ -77,8 +77,8 @@
         },
         "description": {
             "single": "Ce billet vous permet de voyager une seule fois entre deux endroits sélectionnés.",
-            "rechargeable": "Ce ticket peut contenir plusieurs tickets individuels du même type et peut être complété par d'autres tickets..",
-            "fullDay": "Ce billet vous permet de voyager autant que vous le souhaitez dans des zones sélectionnées, pendant un ou plusieurs jours entiers..",
+            "rechargeable": "Ce ticket peut contenir plusieurs tickets individuels du même type et peut être complété par d'autres tickets.",
+            "fullDay": "Ce billet vous permet de voyager autant que vous le souhaitez dans des zones sélectionnées, pendant un ou plusieurs jours entiers.",
             "recharge": "Ici, vous pouvez recharger votre billet rechargeable."
         }
     },
@@ -92,7 +92,7 @@
             "renew": "Renouveler"
         },
         "description": {
-            "monthly": "Cet abonnement vous permet de voyager autant que vous le souhaitez sur des itinéraires sélectionnés, pendant un mois entier..",
+            "monthly": "Cet abonnement vous permet de voyager autant que vous le souhaitez sur des itinéraires sélectionnés, pendant un mois entier.",
             "renew": "Ici, vous pouvez renouveler votre abonnement mensuel."
         }
     },

@@ -1,30 +1,27 @@
+import { Component } from 'react';
 import { Button } from '@mui/material';
 import { withTranslation } from 'react-i18next';
-import { Component } from 'react';
 
-/**
- * 
- */
 class IgnoreButton extends Component {
 
     render() {
-        const { action, t } = this.props;
+        const { action, disabled = false, t } = this.props;
 
         return (
             <Button
                 style={{
+                    backgroundColor: '#1976d2',
                     height: '5vh',
-                    fontSize: '1.5vh'
+                    minWidth: '7.5vh'
                 }}
+                disabled={disabled}
                 variant='contained'
-                color='primary'
-                onClick={() => {
-                    action();
-                }}
+                onClick={() => { action(); }}
             >
                 {t('button.ignore')}
             </Button>
         );
     }
 }
+
 export default withTranslation('common')(IgnoreButton)

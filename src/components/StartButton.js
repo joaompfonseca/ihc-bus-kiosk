@@ -1,42 +1,33 @@
+import { Component } from 'react';
+import { withTranslation } from "react-i18next";
 import { Button } from '@mui/material';
 import CountryFlag from 'react-country-flag';
-import { useTranslation } from "react-i18next";
 
-/**
- * props.flag - Código da bandeira do país ('GB', 'PT', 'FR', 'ES')
- * props.lng  - Linguagem escolhida ('en', 'pt', 'fr', 'es')
- * props.text - Texto do botão
- * props.next - Página seguinte
- */
-export default function StartButton(props) {
-    const { i18n } = useTranslation('common');
-    const { disabled = false } = props;
+class StartButton extends Component {
 
-    return (
-        <Button
-            disabled={disabled}
-            style={{
-                height: '5vh',
-                width: '20vh',
-                justifyContent: 'flex-start',
-                fontSize: '1.5vh'
-            }}
-            variant='contained'
-            color='primary'
-            startIcon={<CountryFlag
+    render = () => {
+        const { action, disabled = false, i18n, flag, lng, text } = this.props;
+
+        return (
+            <Button
                 style={{
-                    marginRight: '1vh',
-                    fontSize: '4vh'
+                    backgroundColor: '#1976d2',
+                    height: '5vh',
+                    justifyContent: 'left',
+                    width: '20vh'
                 }}
-                countryCode={props.flag}
-                svg
-            />}
-            onClick={() => {
-                i18n.changeLanguage(props.lng);
-                props.next();
-            }}
-        >
-            {props.text}
-        </Button>
-    );
+                disabled={disabled}
+                variant='contained'
+                startIcon={<CountryFlag style={{ fontSize: '4vh', marginRight: '1vh' }} countryCode={flag} svg />}
+                onClick={() => {
+                    i18n.changeLanguage(lng);
+                    action();
+                }}
+            >
+                {text}
+            </Button>
+        );
+    }
 }
+
+export default withTranslation('common')(StartButton);

@@ -1,15 +1,27 @@
-import { useState } from 'react';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { Component } from 'react';
+import { Grid } from '@mui/material';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-export default function BasicDatePicker() {
-    const [startDate, setStartDate] = useState(new Date());
+class BasicDatePicker extends Component {
 
-    return (
-        <DatePicker
-            selected={startDate}
-            dateFormat={'dd/MM/yyyy'}
-            onChange={(date) => setStartDate(date)}
-        />
-    );
+    state = {
+        date: new Date()
+    }
+
+    render = () => {
+        const { date } = this.state;
+
+        return (
+            <Grid container className='datePicker'>
+                <DatePicker
+                    selected={date}
+                    dateFormat={'dd/MM/yyyy'}
+                    onChange={(date) => { this.setState({ date: date }); }}
+                />
+            </Grid>
+        );
+    }
 }
+
+export default BasicDatePicker;

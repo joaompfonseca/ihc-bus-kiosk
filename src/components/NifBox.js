@@ -1,5 +1,5 @@
-import { Grid, Typography } from "@mui/material";
-import { Component } from "react";
+import { Component } from 'react';
+import { Grid, Typography } from '@mui/material';
 
 class NifBox extends Component {
 
@@ -14,13 +14,12 @@ class NifBox extends Component {
                     paddingInline: '0.5vh',
                     borderRadius: '0.5vh',
                     borderWidth: '0.3vh',
-                    borderColor: 'cornflowerblue',
+                    borderColor: '#1976d2',
                     borderStyle: 'solid',
                 }}>
-                    <Typography variant='p' fontWeight='bold'>
-                        {text}
-                    </Typography>
+                <Typography variant='h3' fontWeight='bold'>{text}</Typography>
             </Grid>)
     }
 }
+
 export default NifBox;

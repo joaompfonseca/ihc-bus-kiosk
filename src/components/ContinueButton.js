@@ -1,36 +1,31 @@
 import { Button } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { ArrowRight } from '@mui/icons-material';
+import { Component } from 'react';
 
-/**
- * props.action - Função que vai excutar a ação pretendida
- * props.text - Texto interior do botão
- */
-export default function ContinueButton(props) {
-    const theme = useTheme();
-    const { action, text } = props;
+class ContinueButton extends Component {
 
-    return (
-        <Button
-            style={{
-                height: '5vh',
-                fontSize: '1.5vh',
-                justifyContent: 'flex-start',
-                backgroundColor: theme.palette.success.main
-            }}
-            variant='contained'
-            endIcon={<ArrowRight
+    render = () => {
+        const { action, disabled = false, text } = this.props;
+
+        return (
+            <Button
                 style={{
-                    marginLeft: '-1vh',
-                    marginRight: '-2vh',
-                    fontSize: '4vh'
+                    backgroundColor: '#2e7d32',
+                    height: '5vh',
+                    justifyContent: (text == undefined) ? 'center' : 'right',
+                    minWidth: '7.5vh'
                 }}
-            />}
-            onClick={() => {
-                action();
-            }}
-        >
-            {text}
-        </Button>
-    );
+                disabled={disabled}
+                variant='contained'
+                onClick={() => {
+                    action();
+                }}
+            >
+                {text}
+                <ArrowRight style={{ fontSize: '4vh', marginRight: (text == undefined) ? '0vh' : '-1.5vh' }} />
+            </Button>
+        );
+    }
 }
+
+export default ContinueButton;

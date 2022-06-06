@@ -1,35 +1,31 @@
+import { Component } from 'react';
 import { Button } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
 import { ArrowLeft } from '@mui/icons-material';
 
-/**
- * props.back - Função que vai para a página anterior
- * props.text - Texto interior do botão
- */
-export default function BackButton(props) {
-    const theme = useTheme();
+class BackButton extends Component {
 
-    return (
-        <Button
-            style={{
-                height: '5vh',
-                fontSize: '1.5vh',
-                justifyContent: 'flex-start',
-                backgroundColor: theme.palette.warning.main
-            }}
-            variant='contained'
-            startIcon={<ArrowLeft
+    render = () => {
+        const { action, disabled = false, text } = this.props;
+
+        return (
+            <Button
                 style={{
-                    marginLeft: '-1vh',
-                    marginRight: '-2vh',
-                    fontSize: '4vh'
+                    backgroundColor: '#ed6c02',
+                    height: '5vh',
+                    justifyContent: (text === undefined) ? 'center' : 'left',
+                    minWidth: '7.5vh'
                 }}
-            />}
-            onClick={() => {
-                props.back();
-            }}
-        >
-            {props.text}
-        </Button>
-    );
+                disabled={disabled}
+                variant='contained'
+                onClick={() => {
+                    action();
+                }}
+            >
+                <ArrowLeft style={{ fontSize: '4vh', marginLeft: (text === undefined) ? '0vh' : '-1.5vh' }} />
+                {text}
+            </Button>
+        );
+    }
 }
+
+export default BackButton;

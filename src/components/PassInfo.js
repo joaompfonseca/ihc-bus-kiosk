@@ -1,12 +1,8 @@
-import { CompareArrows } from "@mui/icons-material";
-import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
+import { Grid, Typography } from "@mui/material";
+import { CompareArrows } from "@mui/icons-material";
 import { withTranslation } from "react-i18next";
-import ContinueButton from "./ContinueButton";
 
-/**
- * props.info - Informação sobre o passe {logo, price, origin_name, origin_time, destination_name, destination_time, buses, action}
- */
 class PassInfo extends Component {
 
     render() {
@@ -17,12 +13,12 @@ class PassInfo extends Component {
             buses } = this.props.info;
 
         return (
-            <Grid container alignItems='center'
+            <Grid container className='noDivPadding' alignItems='center'
                 style={{
                     paddingInline: '0.5vh',
                     borderRadius: '0.5vh',
                     borderWidth: '0.3vh',
-                    borderColor: 'cornflowerblue',
+                    borderColor: '#1976d2',
                     borderStyle: 'solid',
                     marginBottom: '1vh'
                 }}>

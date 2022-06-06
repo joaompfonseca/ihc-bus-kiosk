@@ -1,12 +1,12 @@
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Component } from "react";
-import { LargeActionButton, Progress, BackButton, ContinueButton} from "../components";
+import { LargeButton, Progress, BackButton, ContinueButton} from "../components";
 import { withTranslation } from "react-i18next";
 import NumericButton from "../components/NumericButton";
 import MethodButton from "../components/MethodButton";
-import qr from '../assets/images/MBWayPage/qrcode.png';
-import mbway from '../assets/images/MBWayPage/mbway.png';
+import qr from '../assets/images/PaymentMethod/mbway.png';
+import mbway from '../assets/images/PaymentMethod/mbway.png';
 import '../assets/styles/MBWayPage.css';
 
 

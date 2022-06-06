@@ -1,11 +1,6 @@
 import { Component } from 'react';
-import { Button } from '@mui/material';
-import { Edit } from '@mui/icons-material';
+import { Button, Typography } from '@mui/material';
 
-/**
- * props.action - Função que vai excutar a ação pretendida
- * props.text   - Texto interior do botão
- */
 export default class NumericButton extends Component {
 
     state = {
@@ -24,22 +19,20 @@ export default class NumericButton extends Component {
             <Button
                 disabled={disabled}
                 style={{
+                    backgroundColor: color,
                     height: '10vh',
                     width: '10vh',
-                    fontSize: '1.5vh',
                     borderWidth: '0.25vh',
                     borderRadius: '0',
                     border: 'solid',
-                    borderColor: 'white',
-                    fontSize: '4.5vh'
+                    borderColor: 'white'
                 }}
                 variant='contained'
-                color={color}
                 onClick={() => {
                     action();
                 }}
             >
-                {text}
+                <Typography variant='h1' fontWeight='bold'>{text}</Typography>
             </Button>
         );
     }

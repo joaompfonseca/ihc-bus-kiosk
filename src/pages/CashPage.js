@@ -1,10 +1,9 @@
 import { Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Component } from "react";
-import { LargeActionButton, Progress, BackButton, ContinueButton, CashBox} from "../components";
+import { LargeButton, Progress, BackButton, ContinueButton, CashBox} from "../components";
 import { withTranslation } from "react-i18next";
-import cash from '../assets/images/PaymentMethodsPage/cash.png';
-import '../assets/styles/CashPage.css';
+import cash from '../assets/images/PaymentMethod/cash.png';
 
 class CashPage extends Component {
     constructor(props) {
