@@ -7,7 +7,6 @@ import NumericButton from "../components/NumericButton";
 import MethodButton from "../components/MethodButton";
 import qr from '../assets/images/PaymentMethod/mbway.png';
 import mbway from '../assets/images/PaymentMethod/mbway.png';
-import '../assets/styles/MBWayPage.css';
 
 
 

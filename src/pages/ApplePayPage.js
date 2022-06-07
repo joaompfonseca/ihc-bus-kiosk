@@ -4,7 +4,6 @@ import { Component } from "react";
 import { LargeButton, Progress, BackButton, ContinueButton} from "../components";
 import applepay from '../assets/images/PaymentMethod/applepay.png';
 import nfc from '../assets/images/PaymentMethod/applepay.png';
-import '../assets/styles/ApplePayPage.css';
 
 
 
