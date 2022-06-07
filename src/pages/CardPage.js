@@ -20,12 +20,12 @@ class CardPage extends Component {
 
     bigSteps = {
         single: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.clearTimeout(); this.props.goto('operation'); }],
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.clearTimeout(); this.props.goto('single'); }]
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.clearTimeout(); this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.clearTimeout(); this.props.goto('single', this.props.data); }]
         ],
         renew: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.clearTimeout(); this.props.goto('operation'); }],
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.clearTimeout(); this.props.goto('renew'); }]
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.clearTimeout(); this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.clearTimeout(); this.props.goto('renew', this.props.data); }]
         ]
     }
 
@@ -76,10 +76,7 @@ class CardPage extends Component {
                     <Grid item xs={12} align='left'>
                         <BackButton text={t('button.back')} action={() => {
                             this.clearTimeout();
-                            goto('paymentMethods', {
-                                prev_page: prev_page,
-                                price: price
-                            });
+                            goto('paymentMethods', data);
                         }} />
                     </Grid>
                 </Grid>

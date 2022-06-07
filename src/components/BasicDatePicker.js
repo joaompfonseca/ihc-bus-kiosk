@@ -6,18 +6,22 @@ import 'react-datepicker/dist/react-datepicker.css';
 class BasicDatePicker extends Component {
 
     state = {
-        date: new Date()
+        date: this.props.date
     }
 
     render = () => {
+        const { action } = this.props;
         const { date } = this.state;
-
+        
         return (
             <Grid container className='datePicker'>
                 <DatePicker
                     selected={date}
                     dateFormat={'dd/MM/yyyy'}
-                    onChange={(date) => { this.setState({ date: date }); }}
+                    onChange={(date) => { 
+                        this.setState({date: date});
+                        action(date);
+                     }}
                 />
             </Grid>
         );

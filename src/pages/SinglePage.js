@@ -7,15 +7,18 @@ import '../assets/styles/SinglePage.css';
 
 class SinglePage extends Component {
 
-    state = {
-        origin_locations_modal: false,
-        origin_selected: false,
-        origin_name: this.props.t('single.label.origin'),
-        destination_locations_modal: false,
-        destination_selected: false,
-        destination_name: this.props.t('single.label.destination'),
-        routes_page: 1
-    };
+    state = (this.props.data?.single_state == undefined) ?
+        {
+            origin_locations_modal: false,
+            origin_selected: false,
+            origin_name: this.props.t('single.label.origin'),
+            destination_locations_modal: false,
+            destination_selected: false,
+            destination_name: this.props.t('single.label.destination'),
+            departure_date: new Date(),
+            routes_page: 1
+        }
+        : this.props.data.single_state;
 
     smallSteps = [
         [
@@ -103,6 +106,12 @@ class SinglePage extends Component {
         });
     }
 
+    setDepartureDate = (date) => {
+        this.setState({
+            departure_date: date
+        });
+    }
+
     setRoutesPage = (page) => {
         this.setState({
             routes_page: page
@@ -154,7 +163,7 @@ class SinglePage extends Component {
         const { goto } = this.props;
         const { origin_selected, origin_name, destination_selected, destination_name, routes_page } = this.state;
         const routes = this.routes;
-
+        console.log(this.props.data)
         if (!origin_selected || !destination_selected)
             return;
 
@@ -169,7 +178,8 @@ class SinglePage extends Component {
                     action={() => {
                         goto('nif', {
                             prev_page: 'single',
-                            price: routes[0].price
+                            price: routes[0].price,
+                            single_state: this.state
                         });
                     }}
                 />,
@@ -182,7 +192,8 @@ class SinglePage extends Component {
                     action={() => {
                         goto('nif', {
                             prev_page: 'single',
-                            price: routes[1].price
+                            price: routes[1].price,
+                            single_state: this.state
                         });
                     }}
                 />
@@ -197,7 +208,8 @@ class SinglePage extends Component {
                     action={() => {
                         goto('nif', {
                             prev_page: 'single',
-                            price: routes[2].price
+                            price: routes[2].price,
+                            single_state: this.state
                         });
                     }}
                 />
@@ -219,11 +231,11 @@ class SinglePage extends Component {
     }
 
     render() {
-        const { t, goto } = this.props;
-        const { origin_locations_modal, destination_locations_modal, origin_name, destination_name } = this.state;
+        const { goto, t } = this.props;
+        const { origin_locations_modal, destination_locations_modal, origin_name, destination_name, departure_date } = this.state;
         const origin_names = this.origin_names;
         const destination_names = this.destination_names;
-
+        
         return (
             <>
                 <LocationsModal
@@ -267,7 +279,7 @@ class SinglePage extends Component {
                         <Typography variant='h3'>{t('single.label.date')}</Typography>
                     </Grid>
                     <Grid item xs={8}>
-                        <BasicDatePicker />
+                        <BasicDatePicker date={departure_date} action={this.setDepartureDate} />
                     </Grid>
                     <Grid item xs={12} align='center'>
                         {this.getRoutesPrompt()}

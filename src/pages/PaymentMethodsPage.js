@@ -13,12 +13,12 @@ class PaymentMethodsPage extends Component {
 
     bigSteps = {
         single: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.props.goto('operation'); }],
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.props.goto('single'); }]
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.props.goto('single', this.props.data); }]
         ],
         renew: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.props.goto('operation'); }],
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.props.goto('renew'); }]
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.props.goto('renew', this.props.data); }]
         ]
     }
 
@@ -52,37 +52,27 @@ class PaymentMethodsPage extends Component {
                         <hr />
                     </Grid>
                     <Grid item xs={6} align='right' paddingRight='2vh'>
-                        <MethodButton text={t('paymentMethods.button.cash')} image={cash} action={() => { goto('cash'); }} disabled />
+                        <MethodButton text={t('paymentMethods.button.cash')} image={cash} action={() => { goto('cash', data); }} disabled />
                     </Grid>
                     <Grid item xs={6} align='left' paddingLeft='2vh'>
-                        <MethodButton text={t('paymentMethods.button.card')} image={card} action={() => {
-                            goto('card', {
-                                prev_page: prev_page,
-                                price: price
-                            });
-                        }} />
+                        <MethodButton text={t('paymentMethods.button.card')} image={card} action={() => { goto('card', data); }} />
                     </Grid>
                     <Grid item xs={6} align='right' paddingRight='2vh'>
-                        <MethodButton /* text={t('paymentMethods.button.mbway')} */ image={mbway} action={() => { goto('mbway'); }} disabled />
+                        <MethodButton /* text={t('paymentMethods.button.mbway')} */ image={mbway} action={() => { goto('mbway', data); }} disabled />
                     </Grid>
                     <Grid item xs={6} align='left' paddingLeft='2vh'>
-                        <MethodButton text={t('paymentMethods.button.applepay')} image={applepay} action={() => { goto('applepay'); }} disabled />
+                        <MethodButton text={t('paymentMethods.button.applepay')} image={applepay} action={() => { goto('applepay', data); }} disabled />
                     </Grid>
                     <Grid item xs={6} align='right' paddingRight='2vh'>
-                        <MethodButton /* text={t('paymentMethods.button.paypal')} */ image={paypal} action={() => { goto('paypal'); }} disabled />
+                        <MethodButton /* text={t('paymentMethods.button.paypal')} */ image={paypal} action={() => { goto('paypal', data); }} disabled />
                     </Grid>
                     <Grid item xs={6} align='left' paddingLeft='2vh'>
-                        <MethodButton text={t('paymentMethods.button.bitcoin')} image={bitcoin} action={() => { goto('bitcoin'); }} disabled />
+                        <MethodButton text={t('paymentMethods.button.bitcoin')} image={bitcoin} action={() => { goto('bitcoin', data); }} disabled />
                     </Grid>
                 </Grid>
                 <Grid container position='absolute' bottom='1vh' width='54.25vh' alignItems='center'>
                     <Grid item xs={4} align='left'>
-                        <BackButton text={t('button.back')} action={() => {
-                            goto('nif', {
-                                prev_page: prev_page,
-                                price: price
-                            });
-                        }} />
+                        <BackButton text={t('button.back')} action={() => { goto('nif', data); }} />
                     </Grid>
                     <Grid item xs={4} align='right'>
                         <Typography variant='h2' fontWeight='bold'>{t('paymentMethods.label.total') + ':'}</Typography>
