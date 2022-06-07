@@ -163,7 +163,7 @@ class SinglePage extends Component {
         const { goto } = this.props;
         const { origin_selected, origin_name, destination_selected, destination_name, routes_page } = this.state;
         const routes = this.routes;
-        console.log(this.props.data)
+
         if (!origin_selected || !destination_selected)
             return;
 
