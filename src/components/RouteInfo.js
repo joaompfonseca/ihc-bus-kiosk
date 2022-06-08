@@ -17,11 +17,11 @@ class RouteInfo extends Component {
         return (
             <Grid container className='noDivPadding' alignItems='top'
                 style={{
-                    paddingInline: '0.5vh',
                     borderRadius: '0.5vh',
                     borderWidth: '0.3vh',
                     borderColor: '#1976d2',
                     borderStyle: 'solid',
+                    padding: '0.5vh',
                     marginBottom: '1vh'
                 }}>
                 {/* Row 1 */}
@@ -50,10 +50,10 @@ class RouteInfo extends Component {
                     <ContinueButton action={() => { action() }} />
                 </Grid>
                 {/* Row 3 */}
-                <Grid item xs={4}>
+                <Grid item xs={7}>
                     <Typography variant='h4' color='text.secondary'>{t('routeInfo.buses') + ' (' + buses.length + '): ' + buses}</Typography>
                 </Grid>
-                <Grid item xs={5} align='right'>
+                <Grid item xs={2} align='right'>
                     <Typography variant='h4' color='text.secondary'>{total_time}</Typography>
                 </Grid>
                 <Grid item xs={3}>
