@@ -7,17 +7,17 @@ import { withTranslation } from "react-i18next";
 class NifPage extends Component {
 
     state = {
-        nif: ''
+        nif: (this.props.data?.nif == undefined) ? '' : this.props.data.nif
     }
 
     bigSteps = {
         single: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.props.goto('operation', this.props.data); }],
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.props.goto('single', this.props.data); }]
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.props.goto('operation', { ...this.props.data, nif: this.state.nif }); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.props.goto('single', { ...this.props.data, nif: this.state.nif }); }]
         ],
         renew: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.props.goto('operation', this.props.data); }],
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.props.goto('renew', this.props.data); }]
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.props.goto('operation', { ...this.props.data, nif: this.state.nif }); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.props.goto('renew', { ...this.props.data, nif: this.state.nif }); }]
         ]
     }
 
@@ -94,13 +94,13 @@ class NifPage extends Component {
                 </Grid>
                 <Grid container position='absolute' bottom='1vh' width='54.25vh'>
                     <Grid item xs={4} align='left'>
-                        <BackButton text={t('button.back')} action={() => { goto(prev_page, data); }} />
+                        <BackButton text={t('button.back')} action={() => { goto(prev_page, { ...data, nif: nif }); }} />
                     </Grid>
                     <Grid item xs={4} align='center'>
-                        <IgnoreButton action={() => { goto('paymentMethods', data); }} />
+                        <IgnoreButton action={() => { goto('paymentMethods', { ...data, nif: nif }); }} />
                     </Grid>
                     <Grid item xs={4} align='right'>
-                        <ContinueButton text={t('button.continue')} action={() => { goto('paymentMethods', data); }} />
+                        <ContinueButton text={t('button.continue')} action={() => { goto('paymentMethods', { ...data, nif: nif }); }} />
                     </Grid>
                 </Grid>
             </>

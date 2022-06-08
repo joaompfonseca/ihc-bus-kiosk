@@ -160,7 +160,7 @@ class SinglePage extends Component {
     }
 
     getRoutes = () => {
-        const { goto } = this.props;
+        const { data, goto } = this.props;
         const { origin_selected, origin_name, destination_selected, destination_name, routes_page } = this.state;
         const routes = this.routes;
 
@@ -177,6 +177,7 @@ class SinglePage extends Component {
                     }}
                     action={() => {
                         goto('nif', {
+                            ...data,
                             prev_page: 'single',
                             price: routes[0].price,
                             single_state: this.state
@@ -191,6 +192,7 @@ class SinglePage extends Component {
                     }}
                     action={() => {
                         goto('nif', {
+                            ...data,
                             prev_page: 'single',
                             price: routes[1].price,
                             single_state: this.state
@@ -207,6 +209,7 @@ class SinglePage extends Component {
                     }}
                     action={() => {
                         goto('nif', {
+                            ...data,
                             prev_page: 'single',
                             price: routes[2].price,
                             single_state: this.state
