@@ -25,7 +25,7 @@ class LocationsModal extends Component {
                         width: '50vh',
                         borderRadius: '1vh',
                         borderWidth: '0.5vh',
-                        borderColor: 'cornflowerblue',
+                        borderColor: '#1976d2',
                         borderStyle: 'solid',
                         backgroundColor: 'white',
                         position: 'absolute',
