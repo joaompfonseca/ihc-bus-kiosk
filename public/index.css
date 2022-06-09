@@ -48,12 +48,8 @@ html {
     background-color: black
 }
 
-.datePicker div {
-    padding: 0
-}
-
 .datePicker input {
-    height: 4.5vh;
+    height: 4.2vh;
     width: 10vh;
     justify-content: center;
     border-radius: 0.5vh;
@@ -61,7 +57,7 @@ html {
     border-color: #1976d2;
     border-style: solid;
     color: 'white';
-    font-size: 2vh
+    font-size: 2vh;
 }
 
 .Mui-disabled { 
