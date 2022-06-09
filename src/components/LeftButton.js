@@ -5,7 +5,7 @@ import { ArrowBack } from '@mui/icons-material';
 class LeftButton extends Component {
 
     render = () => {
-        const { action, disabled = false, text } = this.props;
+        const { action = () => { }, disabled = false, text } = this.props;
 
         return (
             <Button

@@ -6,7 +6,7 @@ import CountryFlag from 'react-country-flag';
 class StartButton extends Component {
 
     render = () => {
-        const { action, disabled = false, i18n, flag, lng, text } = this.props;
+        const { action = () => { }, disabled = false, i18n, flag, lng, text } = this.props;
 
         return (
             <Button

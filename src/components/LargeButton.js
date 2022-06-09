@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 class LargeButton extends Component {
 
     render = () => {
-        const { action, disabled = false, text } = this.props;
+        const { action = () => { }, disabled = false, text } = this.props;
 
         return (
             <Button

@@ -12,7 +12,7 @@ export default class NumericButton extends Component {
     }
 
     render() {
-        const { action, color, disabled = false } = this.props;
+        const { action = () => { }, color, disabled = false } = this.props;
         const { text } = this.state;
 
         return (

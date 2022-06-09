@@ -5,7 +5,7 @@ import { Edit } from '@mui/icons-material';
 class EditButton extends Component {
 
     render = () => {
-        const { action, disabled = false } = this.props;
+        const { action = () => { }, disabled = false } = this.props;
 
         return (
             <Button

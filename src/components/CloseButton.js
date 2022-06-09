@@ -5,7 +5,7 @@ import { Close } from '@mui/icons-material';
 class CloseButton extends Component {
 
     render = () => {
-        const { action, disabled = false } = this.props;
+        const { action = () => { }, disabled = false } = this.props;
 
         return (
             <Button

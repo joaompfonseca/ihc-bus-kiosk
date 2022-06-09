@@ -5,7 +5,7 @@ import { ArrowForward } from '@mui/icons-material';
 class RightButton extends Component {
 
     render = () => {
-        const { action, disabled = false, text } = this.props;
+        const { action = () => { }, disabled = false, text } = this.props;
 
         return (
             <Button

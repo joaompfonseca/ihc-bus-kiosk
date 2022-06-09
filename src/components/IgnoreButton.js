@@ -5,7 +5,7 @@ import { withTranslation } from 'react-i18next';
 class IgnoreButton extends Component {
 
     render() {
-        const { action, disabled = false, t } = this.props;
+        const { action = () => { }, disabled = false, t } = this.props;
 
         return (
             <Button

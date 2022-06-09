@@ -4,7 +4,7 @@ import { Component } from 'react';
 class MethodButton extends Component {
 
     render() {
-        const { action, disabled = false, image, text = '' } = this.props;
+        const { action = () => { }, disabled = false, image, text = '' } = this.props;
 
         return (
             <Button

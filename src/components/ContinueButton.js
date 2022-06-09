@@ -5,7 +5,7 @@ import { Component } from 'react';
 class ContinueButton extends Component {
 
     render = () => {
-        const { action, disabled = false, text } = this.props;
+        const { action = () => { }, disabled = false, text } = this.props;
 
         return (
             <Button
