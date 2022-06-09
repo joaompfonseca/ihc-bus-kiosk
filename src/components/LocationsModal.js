@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { withTranslation } from "react-i18next";
-import { Grid, Modal, Pagination, Typography } from '@mui/material';
-import { AddButton, CloseButton } from '.';
+import { Grid, Modal, Typography } from '@mui/material';
+import { AddButton, CloseButton, LeftButton, RightButton } from '.';
 
 class LocationsModal extends Component {
 
@@ -64,10 +64,9 @@ class LocationsModal extends Component {
                             </Grid>
                         </Grid>
                     ))}
-                    <Grid item xs={12}
-                        display='flex'
-                        justifyContent='center'>
-                        <Pagination count={1} />
+                    <Grid item xs={12} align='center'>
+                        <LeftButton text={t('single.button.prev')} disabled />
+                        <RightButton text={t('single.button.more')} disabled />
                     </Grid>
                 </Grid>
             </Modal>

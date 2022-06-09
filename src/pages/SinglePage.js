@@ -1,13 +1,12 @@
-import { Grid, Typography, Pagination } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { AddButton, BackButton, BasicDatePicker, EditButton, LocationsModal, Progress, RouteInfo } from "../components";
+import { AddButton, BackButton, BasicDatePicker, EditButton, LeftButton, LocationsModal, Progress, RightButton, RouteInfo } from "../components";
 import imgTransdev from '../assets/images/RouteCompany/transdev.png';
-import '../assets/styles/SinglePage.css';
 
 class SinglePage extends Component {
 
-    state = (this.props.data?.single_state == undefined) ?
+    state = (this.props.data?.single_state === undefined) ?
         {
             origin_locations_modal: false,
             origin_selected: false,
@@ -217,19 +216,24 @@ class SinglePage extends Component {
                     }}
                 />
             ];
+            default: return;
         }
     }
 
     getRoutesPagination = () => {
-        const { origin_selected, destination_selected } = this.state;
+        const { t } = this.props;
+        const { origin_selected, destination_selected, routes_page } = this.state;
 
         if (!origin_selected || !destination_selected)
             return;
 
-        return <Pagination className='pagination' count={2} onChange={this.routesPageChange} />;
+        return <>
+            <LeftButton text={t('single.button.prev')} action={() => { this.routesPageChange(routes_page - 1); }} disabled={routes_page === 1} />
+            <RightButton text={t('single.button.more')} action={() => { this.routesPageChange(routes_page + 1); }} disabled={routes_page === 2} />
+        </>;
     }
 
-    routesPageChange = (event, page) => {
+    routesPageChange = (page) => {
         this.setRoutesPage(page);
     }
 
@@ -238,7 +242,7 @@ class SinglePage extends Component {
         const { origin_locations_modal, destination_locations_modal, origin_name, destination_name, departure_date } = this.state;
         const origin_names = this.origin_names;
         const destination_names = this.destination_names;
-        
+
         return (
             <>
                 <LocationsModal
@@ -290,9 +294,7 @@ class SinglePage extends Component {
                     <Grid item xs={12}>
                         {this.getRoutes()}
                     </Grid>
-                    <Grid item xs={12}
-                        display='flex'
-                        justifyContent='center'>
+                    <Grid item xs={12} align='right' marginTop='-2vh'>
                         {this.getRoutesPagination()}
                     </Grid>
                 </Grid>

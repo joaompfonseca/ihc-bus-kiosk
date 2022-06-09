@@ -102,6 +102,10 @@
             "location": "Sélectionnez le lieu",
             "select": "Sélectionner l'itinéraire"
         },
+        "button": {
+            "prev": "Précédent",
+            "more": "Plus"
+        },
         "label": {
             "origin": "Ajouter l'origine",
             "destination": "Ajouter une destination",

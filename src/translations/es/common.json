@@ -102,6 +102,10 @@
             "location": "Seleccione la ubicación",
             "select": "Seleccione la ruta"
         },
+        "button": {
+            "prev": "Anteriores",
+            "more": "Más"
+        },
         "label": {
             "origin": "Añadir origen",
             "destination": "Añadir destino",

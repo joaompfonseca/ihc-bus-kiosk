@@ -1,8 +1,8 @@
-import { Button } from '@mui/material';
-import { ArrowRight } from '@mui/icons-material';
 import { Component } from 'react';
+import { Button } from '@mui/material';
+import { ArrowForward } from '@mui/icons-material';
 
-class ContinueButton extends Component {
+class RightButton extends Component {
 
     render = () => {
         const { action, disabled = false, text } = this.props;
@@ -10,22 +10,20 @@ class ContinueButton extends Component {
         return (
             <Button
                 style={{
-                    backgroundColor: '#2e7d32',
+                    backgroundColor: '#1976d2',
                     height: '5vh',
                     justifyContent: (text === undefined) ? 'center' : 'right',
                     minWidth: '7.5vh'
                 }}
                 disabled={disabled}
                 variant='contained'
-                onClick={() => {
-                    action();
-                }}
+                onClick={() => { action(); }}
             >
                 {text}
-                <ArrowRight style={{ fontSize: '4vh', marginRight: (text === undefined) ? '0vh' : '-1.5vh' }} />
+                <ArrowForward style={{ fontSize: '4vh', marginRight: (text === undefined) ? '0vh' : '-1.5vh'  }} />
             </Button>
         );
     }
 }
 
-export default ContinueButton;
+export default RightButton;
