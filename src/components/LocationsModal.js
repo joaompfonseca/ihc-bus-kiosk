@@ -53,9 +53,9 @@ class LocationsModal extends Component {
                         <hr />
                     </Grid>
                     {location_names.map((name) => (
-                        <Grid container alignItems='center' marginBottom='1vh'>
+                        <Grid container alignItems='center' marginBottom='1vh' onClick={() => { action(name); }}>
                             <Grid item xs={2.5} align='left'>
-                                <AddButton action={() => action(name)} />
+                                <AddButton /> {/* Adds if location component is clicked anywere! */}
                             </Grid>
                             <Grid item xs={9.5}>
                                 <Typography variant='h3' align='left'>

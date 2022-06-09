@@ -23,7 +23,8 @@ class RouteInfo extends Component {
                     borderStyle: 'solid',
                     padding: '0.5vh',
                     marginBottom: '1vh'
-                }}>
+                }}
+                onClick={() => { action(); }}>
                 {/* Row 1 */}
                 <Grid item xs={4}>
                     <img src={logo} alt='company' width='100%' />
@@ -47,7 +48,7 @@ class RouteInfo extends Component {
                     <Typography variant='h4' align='right'>{destination_name}</Typography>
                 </Grid>
                 <Grid item xs={3} align='center'>
-                    <ContinueButton action={() => { action() }} />
+                    <ContinueButton /> {/* Continues if RouteInfo component is clicked anywere! */}
                 </Grid>
                 {/* Row 3 */}
                 <Grid item xs={7}>
