@@ -53,7 +53,16 @@ class LocationsModal extends Component {
                         <hr />
                     </Grid>
                     {location_names.map((name) => (
-                        <Grid container alignItems='center' marginBottom='1vh' onClick={() => { action(name); }}>
+                        <Grid container alignItems='center'
+                            style={{
+                                borderRadius: '0.5vh',
+                                borderWidth: '0.3vh',
+                                borderColor: '#1976d2',
+                                borderStyle: 'solid',
+                                padding: '0.5vh',
+                                marginBottom: '0.5vh'
+                            }}
+                            onClick={() => { action(name); }}>
                             <Grid item xs={2.5} align='left'>
                                 <AddButton /> {/* Adds if location component is clicked anywere! */}
                             </Grid>
