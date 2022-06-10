@@ -1,5 +1,6 @@
-import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
+import { Grid, Typography } from "@mui/material";
+import { InfoOutlined } from '@mui/icons-material';
 import { withTranslation } from "react-i18next";
 import { BackButton, ContinueButton, LoadingModal, LoseInfoModal, PassInfo, Progress } from "../components";
 import imgKioskSensor from '../assets/images/Kiosk/sensor.png';
@@ -45,13 +46,19 @@ class RenewPage extends Component {
 
     contents = [
         <>
-            <Grid item xs={6}>
+            <Grid item xs={12} align='center'>
                 <Typography variant='h3'>
+                    <InfoOutlined style={{
+                        color: '#ed6c02',
+                        fontSize: '4vh',
+                        marginRight: '1vh',
+                        verticalAlign: 'middle',
+                    }} />
                     {this.props.t('renew.description.scan')}
                 </Typography>
             </Grid>
-            <Grid item xs={6}>
-                <img src={imgKioskSensor} alt='kioskSensor' width='100%' />
+            <Grid item xs={12} align='center'>
+                <img src={imgKioskSensor} alt='kioskSensor' width='75%' />
             </Grid>
         </>,
         <>

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Grid, Typography } from "@mui/material";
+import { InfoOutlined } from '@mui/icons-material';
 import { withTranslation } from "react-i18next";
 import { BackButton, LoadingModal, LoseInfoModal, Progress } from "../components";
 import imgKioskCard from '../assets/images/Kiosk/card.png';
@@ -124,11 +125,19 @@ class CardPage extends Component {
                         <Typography variant='h1' fontWeight='bold'>{t('card.prompt.pay')}</Typography>
                         <hr />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Typography variant='h3'>{t('card.description.insert')}</Typography>
+                    <Grid item xs={12} align='center'>
+                        <Typography variant='h3'>
+                            <InfoOutlined style={{
+                                color: '#ed6c02',
+                                fontSize: '4vh',
+                                marginRight: '1vh',
+                                verticalAlign: 'middle',
+                            }} />
+                            {t('card.description.insert')}
+                        </Typography>
                     </Grid>
-                    <Grid item xs={6}>
-                        <img src={imgKioskCard} alt='kioskCard' width='100%' />
+                    <Grid item xs={12} align='center'>
+                        <img src={imgKioskCard} alt='kioskCard' width='75%' />
                     </Grid>
                 </Grid>
                 <Grid container position='absolute' bottom='1vh' width='54.25vh'>
