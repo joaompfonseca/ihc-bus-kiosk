@@ -60,12 +60,28 @@ html {
     font-size: 2vh;
 }
 
-.Mui-disabled { 
+.MuiFilledInput-root {
+    height: 5vh !important;
+    width: 20vh;
+    border-radius: 0.5vh;
+    border-width: 0.3vh;
+}
+
+.MuiSelect-select {
+    padding: 1.5vh !important;
+    padding-right: 4vh !important;
+}
+
+.Mui-disabled {
     background-color: #A0A0A0 !important;
 }
 
 .noDivPadding div {
     padding: 0
+}
+
+.oneDivPadding div {
+    padding: 1vh
 }
 
 .react-datepicker-wrapper {

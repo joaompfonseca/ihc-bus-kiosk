@@ -125,10 +125,16 @@
             "prev": "Anteriores",
             "more": "Más"
         },
+        "filter": {
+            "duration": "Más rapida",
+            "price": "Precio más bajo",
+            "time": "Hora de salida"
+        },
         "label": {
             "origin": "Añadir origen",
             "destination": "Añadir destino",
-            "date": "Fecha de salida"
+            "date": "Fecha de salida",
+            "filter": "Filtro"
         }
     },
     "renew": {

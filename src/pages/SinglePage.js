@@ -1,5 +1,5 @@
-import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
+import { FormControl, Grid, MenuItem, Select, Typography } from "@mui/material";
 import { withTranslation } from "react-i18next";
 import { AddButton, BackButton, BasicDatePicker, EditButton, LeftButton, LocationsModal, LoseInfoModal, Progress, RightButton, RouteInfo } from "../components";
 import imgTransdev from '../assets/images/RouteCompany/transdev.png';
@@ -17,6 +17,7 @@ class SinglePage extends Component {
             origin_locations_modal: false,
             origin_name: this.props.t('single.label.origin'),
             origin_selected: false,
+            routes_filter: 'time',
             routes_page: 1
         }
         : this.props.data.single_state;
@@ -44,7 +45,7 @@ class SinglePage extends Component {
         'Cusces Eget'
     ];
 
-    routes = [
+    all_routes = [
         {
             logo: imgTransdev,
             price: '3,00€',
@@ -70,6 +71,12 @@ class SinglePage extends Component {
             total_time: '20min'
         },
     ];
+
+    routes = {
+        duration: [this.all_routes[2], this.all_routes[0], this.all_routes[1]],
+        price: [this.all_routes[1], this.all_routes[0], this.all_routes[2]],
+        time: [this.all_routes[0], this.all_routes[1], this.all_routes[2]]
+    };
 
     setDestinationLocationsModal = (bool) => {
         this.setState({
@@ -125,6 +132,12 @@ class SinglePage extends Component {
         });
     }
 
+    setRoutesFilter = (event) => {
+        this.setState({
+            routes_filter: event.target.value
+        });
+    }
+
     setRoutesPage = (page) => {
         this.setState({
             routes_page: page
@@ -172,9 +185,41 @@ class SinglePage extends Component {
         </>;
     }
 
+    getRoutesFilter = () => {
+        const { t } = this.props;
+        const { origin_selected, destination_selected, routes_filter } = this.state;
+
+        if (!origin_selected || !destination_selected)
+            return;
+
+        return <Grid container className='noDivPadding' padding='0vh' alignItems='center'>
+            <Grid item xs={7} align='right'>
+                <Typography variant='h3'>{t('single.label.filter')}</Typography>
+            </Grid>
+            <Grid item xs={5} align='right'>
+                <FormControl className='noDivPadding'>
+                    <Select
+                        style={{
+                            backgroundColor: '#1976d2',
+                            color: 'white',
+                            textAlign: 'center'
+                        }}
+                        onChange={this.setRoutesFilter}
+                        value={routes_filter}
+                        variant='filled'
+                    >
+                        <MenuItem value={'time'}>{t('single.filter.time')}</MenuItem>
+                        <MenuItem value={'price'}>{t('single.filter.price')}</MenuItem>
+                        <MenuItem value={'duration'}>{t('single.filter.duration')}</MenuItem>
+                    </Select>
+                </FormControl>
+            </Grid>
+        </Grid>;
+    }
+
     getRoutes = () => {
         const { data, goto } = this.props;
-        const { origin_selected, origin_name, destination_selected, destination_name, routes_page } = this.state;
+        const { origin_selected, origin_name, destination_selected, destination_name, routes_filter, routes_page } = this.state;
         const routes = this.routes;
 
         if (!origin_selected || !destination_selected)
@@ -186,13 +231,13 @@ class SinglePage extends Component {
                     details={{
                         origin_name: origin_name,
                         destination_name: destination_name,
-                        ...routes[0]
+                        ...routes[routes_filter][0]
                     }}
                     action={() => {
                         goto('nif', {
                             ...data,
                             prev_page: 'single',
-                            price: routes[0].price,
+                            price: routes[routes_filter][0].price,
                             single_state: this.state
                         });
                     }}
@@ -201,13 +246,13 @@ class SinglePage extends Component {
                     details={{
                         origin_name: origin_name,
                         destination_name: destination_name,
-                        ...routes[1]
+                        ...routes[routes_filter][1]
                     }}
                     action={() => {
                         goto('nif', {
                             ...data,
                             prev_page: 'single',
-                            price: routes[1].price,
+                            price: routes[routes_filter][1].price,
                             single_state: this.state
                         });
                     }}
@@ -218,13 +263,13 @@ class SinglePage extends Component {
                     details={{
                         origin_name: origin_name,
                         destination_name: destination_name,
-                        ...routes[2]
+                        ...routes[routes_filter][2]
                     }}
                     action={() => {
                         goto('nif', {
                             ...data,
                             prev_page: 'single',
-                            price: routes[2].price,
+                            price: routes[routes_filter][2].price,
                             single_state: this.state
                         });
                     }}
@@ -309,6 +354,9 @@ class SinglePage extends Component {
                     </Grid>
                     <Grid item xs={12} align='center'>
                         {this.getRoutesPrompt()}
+                    </Grid>
+                    <Grid item xs={12} align='right' marginTop='-2vh' marginBottom='-1vh'>
+                        {this.getRoutesFilter()}
                     </Grid>
                     <Grid item xs={12}>
                         {this.getRoutes()}
