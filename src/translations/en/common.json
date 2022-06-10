@@ -44,6 +44,20 @@
     "routeInfo": {
         "buses": "Buses"
     },
+    "loading": {
+        "description": {
+            "print": {
+                "receipt": "Printing receipt",
+                "ticket": "Printing ticket"
+            },
+            "process": {
+                "payment": "Processing payment"
+            },
+            "read": {
+                "pass": "Reading pass"
+            }
+        }
+    },
     "loseInfo": {
         "description": "You will lose information if you proceed. Do you really want to do this?"
     },

@@ -44,6 +44,20 @@
     "routeInfo": {
         "buses": "Autocarros"
     },
+    "loading": {
+        "description": {
+            "print": {
+                "receipt": "A imprimir recibo",
+                "ticket": "A imprimir bilhete"
+            },
+            "process": {
+                "payment": "A processar pagamento"
+            },
+            "read": {
+                "pass": "A ler passe"
+            }
+        }
+    },
     "loseInfo": {
         "description": "Perderá informação se continuar. Quer mesmo fazer isto?"
     },

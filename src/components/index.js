@@ -9,6 +9,7 @@ export {default as GreenButton} from './GreenButton';
 export {default as IgnoreButton} from './IgnoreButton';
 export {default as LargeButton} from './LargeButton';
 export {default as LeftButton} from './LeftButton';
+export {default as LoadingModal} from './LoadingModal';
 export {default as LocationsModal} from './LocationsModal';
 export {default as LoseInfoModal} from './LoseInfoModal';
 export {default as MethodButton} from './MethodButton';

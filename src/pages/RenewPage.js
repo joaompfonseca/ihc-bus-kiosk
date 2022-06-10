@@ -1,7 +1,7 @@
 import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { BackButton, ContinueButton, LoseInfoModal, PassInfo, Progress } from "../components";
+import { BackButton, ContinueButton, LoadingModal, LoseInfoModal, PassInfo, Progress } from "../components";
 import imgKioskSensor from '../assets/images/Kiosk/sensor.png';
 
 class RenewPage extends Component {
@@ -14,6 +14,7 @@ class RenewPage extends Component {
     state = (this.props.data?.renew_state === undefined) ?
         {
             index: 0,
+            loading_modal: false,
             lose_info_action: () => { },
             lose_info_modal: false
         }
@@ -69,7 +70,8 @@ class RenewPage extends Component {
         <>
             <Grid item xs={6} align='left'>
                 <BackButton text={this.props.t('button.back')} action={() => {
-                    this.setLoseInfoAction(() => { this.setIndex(0); });
+                    this.clearTimeout();
+                    this.setLoseInfoAction(() => { this.setIndex(0); this.setTimeout(); });
                     this.setLoseInfoModal(true);
                 }} />
             </Grid>
@@ -85,6 +87,12 @@ class RenewPage extends Component {
         </>
     ];
 
+    setLoadingModal = (bool) => {
+        this.setState({
+            loading_modal: bool
+        });
+    }
+
     setLoseInfoAction = (action) => {
         this.setState({
             lose_info_action: action
@@ -98,13 +106,13 @@ class RenewPage extends Component {
     }
 
     setTimeout = () => {
-        const { index } = this.state;
-
-        if (index === 0) {
-            setTimeout(() => {
-                this.setIndex(1);
-            }, 7000);
-        }
+        setTimeout(() => {
+            this.setLoadingModal(true);
+        }, 4000);
+        setTimeout(() => {
+            this.setLoadingModal(false);
+            this.setIndex(1);
+        }, 6000);
     }
 
     clearTimeout = () => {
@@ -115,7 +123,6 @@ class RenewPage extends Component {
     }
 
     setIndex = (index) => {
-        if (index === 0) setTimeout(() => { this.setIndex(1); }, 5000); // Pretend to scan the pass
         this.setState({
             index: index
         });
@@ -147,22 +154,18 @@ class RenewPage extends Component {
 
     render() {
         const { t, goto } = this.props;
-        const { index, lose_info_action, lose_info_modal } = this.state;
+        const { index, loading_modal, lose_info_action, lose_info_modal } = this.state;
 
         return (
             <>
+                <LoadingModal open={loading_modal} text={t('loading.description.read.pass')} />
                 <LoseInfoModal
                     action={() => {
                         lose_info_action();
-                        if (index === 1) {
-                            this.setLoseInfoModal(false);
-                        }
+                        this.setLoseInfoModal(false);
                     }}
                     close={() => {
                         this.setLoseInfoModal(false);
-                        if (index === 0) {
-                            this.setTimeout();
-                        }
                     }}
                     open={lose_info_modal}
                 />
@@ -171,11 +174,12 @@ class RenewPage extends Component {
                         <Progress
                             bigSteps={[
                                 [<Typography fontWeight='bold'>{t('progress.bigStep.passes.renew')}</Typography>, () => {
-                                    this.clearTimeout();
                                     if (index === 0) {
-                                        goto('operation');
+                                        this.clearTimeout();
+                                        goto('passes');
                                     }
                                     else if (index === 1) {
+                                        this.clearTimeout();
                                         this.setLoseInfoAction(() => { goto('operation'); });
                                         this.setLoseInfoModal(true);
                                     }

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Grid, Typography } from "@mui/material";
 import { withTranslation } from "react-i18next";
-import { BackButton, LoseInfoModal, Progress } from "../components";
+import { BackButton, LoadingModal, LoseInfoModal, Progress } from "../components";
 import imgKioskCard from '../assets/images/Kiosk/card.png';
 
 class CardPage extends Component {
@@ -12,6 +12,8 @@ class CardPage extends Component {
     }
 
     state = {
+        loading_modal: false,
+        loading_modal_text: '',
         lose_info_action: () => { },
         lose_info_modal: false
     }
@@ -27,6 +29,18 @@ class CardPage extends Component {
         ]
     }
 
+    setLoadingModal = (bool) => {
+        this.setState({
+            loading_modal: bool
+        })
+    }
+
+    setLoadingModalText = (text) => {
+        this.setState({
+            loading_modal_text: text
+        })
+    }
+
     setLoseInfoAction = (action) => {
         this.setState({
             lose_info_action: action
@@ -40,15 +54,32 @@ class CardPage extends Component {
     }
 
     setTimeout = () => {
-        const { data, goto } = this.props;
+        const { data, goto, t } = this.props;
         const { prev_page, price } = data;
 
+        // Payment
         setTimeout(() => {
+            this.setLoadingModalText(t('loading.description.process.payment'));
+            this.setLoadingModal(true);
+        }, 4000);
+        // Ticket
+        if (prev_page === 'single') {
+            setTimeout(() => {
+                this.setLoadingModalText(t('loading.description.print.ticket'));
+            }, 6000);
+        }
+        // Receipt
+        setTimeout(() => {
+            this.setLoadingModalText(t('loading.description.print.receipt'));
+        }, 8000);
+        // Finish
+        setTimeout(() => {
+            this.setLoadingModal(false);
             goto('finish', {
                 prev_page: prev_page,
                 price: price
             });
-        }, 7000);
+        }, 10000);
     }
 
     clearTimeout = () => {
@@ -67,10 +98,11 @@ class CardPage extends Component {
 
     render() {
         const { t, goto, data } = this.props;
-        const { lose_info_action, lose_info_modal } = this.state;
+        const { loading_modal, loading_modal_text, lose_info_action, lose_info_modal } = this.state;
 
         return (
             <>
+                <LoadingModal open={loading_modal} text={loading_modal_text} />
                 <LoseInfoModal
                     action={() => { lose_info_action() }}
                     close={() => { this.setLoseInfoModal(false); this.setTimeout(); }}
