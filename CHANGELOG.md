@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 - Now locations and routes can be selected if clicked anywhere, including their button.
 - New border on each selectable location.
 - Now date picker can be used with arrows.
+- Now user is alerted if information is about to be lost.
+- New loading modal to give more information about actions of user.
 
 ### Changed
 - Now single ticket information state is saved between pages.
