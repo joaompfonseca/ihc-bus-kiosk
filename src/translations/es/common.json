@@ -47,11 +47,11 @@
     "loading": {
         "description": {
             "print": {
-                "receipt": "Imprimiendo de recibo",
-                "ticket": "Imprimiendo de billete"
+                "receipt": "Imprimiendo recibo",
+                "ticket": "Imprimiendo billete"
             },
             "process": {
-                "payment": "Procesando el pago"
+                "payment": "Procesando pago"
             },
             "read": {
                 "pass": "Leyendo pase"
