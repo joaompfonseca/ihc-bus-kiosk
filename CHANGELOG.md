@@ -8,12 +8,14 @@ All notable changes to this project will be documented in this file.
 - Now date picker can be used with arrows.
 - Now user is alerted if information is about to be lost.
 - New loading modal to give more information about actions of user.
+- Now routes can be filtered depending on departure time, lowest price or faster duration.
 
 ### Changed
 - Now single ticket information state is saved between pages.
 - Now NIF state is saved between pages.
 - Now disabled buttons are greyed out instead of maintaining their original color.
 - Now single ticket pagination is based on "previous" and "more" buttons.
+- Now kiosk images are bigger.
 
 ### Fixed
 - Single ticket route selection pagination buttons being locked.
