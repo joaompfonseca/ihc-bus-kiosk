@@ -1,24 +1,38 @@
 import { Grid, Typography } from "@mui/material";
 import { Backspace } from '@mui/icons-material';
 import { Component } from "react";
-import { Progress, BackButton, ContinueButton, IgnoreButton, NifBox, NumericButton } from "../components";
+import { Progress, BackButton, ContinueButton, IgnoreButton, LoseInfoModal, NifBox, NumericButton } from "../components";
 import { withTranslation } from "react-i18next";
 
 class NifPage extends Component {
 
     state = {
+        lose_info_action: () => { },
+        lose_info_modal: false,
         nif: (this.props.data?.nif == undefined) ? '' : this.props.data.nif
     }
 
     bigSteps = {
         single: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.props.goto('operation', { ...this.props.data, nif: this.state.nif }); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.setLoseInfoAction(() => { this.props.goto('operation', { ...this.props.data, nif: this.state.nif }); }); this.setLoseInfoModal(true); }],
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.props.goto('single', { ...this.props.data, nif: this.state.nif }); }]
         ],
         renew: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.props.goto('operation', { ...this.props.data, nif: this.state.nif }); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.setLoseInfoAction(() => { this.props.goto('operation', { ...this.props.data, nif: this.state.nif }); }); this.setLoseInfoModal(true); }],
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.props.goto('renew', { ...this.props.data, nif: this.state.nif }); }]
         ]
+    }
+
+    setLoseInfoAction = (action) => {
+        this.setState({
+            lose_info_action: action
+        })
+    }
+
+    setLoseInfoModal = (bool) => {
+        this.setState({
+            lose_info_modal: bool
+        })
     }
 
     setNif = (nif) => {
@@ -48,10 +62,15 @@ class NifPage extends Component {
     render = () => {
         const { t, goto, data } = this.props;
         const { prev_page } = data;
-        const { nif } = this.state;
+        const { lose_info_action, lose_info_modal, nif } = this.state;
 
         return (
             <>
+                <LoseInfoModal
+                    action={() => { lose_info_action() }}
+                    close={() => { this.setLoseInfoModal(false); }}
+                    open={lose_info_modal}
+                />
                 <Grid container>
                     <Grid item xs={12}>
                         <Progress

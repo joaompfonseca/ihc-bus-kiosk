@@ -1,32 +1,54 @@
 import { Component } from "react";
 import { Grid, Typography } from "@mui/material";
 import { withTranslation } from "react-i18next";
-import { Progress, BackButton } from "../components";
+import { BackButton, LoseInfoModal, Progress } from "../components";
 import imgKioskCard from '../assets/images/Kiosk/card.png';
 
 class CardPage extends Component {
 
     constructor(props) {
         super(props);
-        const { data } = props;
-        const { prev_page, price } = data;
-        setTimeout(() => {
-            this.props.goto('finish', {
-                prev_page: prev_page,
-                price: price
-            });
-        }, 7000); // Pretend to pay
+        this.setTimeout(); // Pretend to pay
+    }
+
+    state = {
+        lose_info_action: () => { },
+        lose_info_modal: false
     }
 
     bigSteps = {
         single: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.clearTimeout(); this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.clearTimeout(); this.setLoseInfoAction(() => { this.props.goto('operation'); }); this.setLoseInfoModal(true); }],
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.clearTimeout(); this.props.goto('single', this.props.data); }]
         ],
         renew: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.clearTimeout(); this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.clearTimeout(); this.setLoseInfoAction(() => { this.props.goto('operation'); }); this.setLoseInfoModal(true); }],
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.clearTimeout(); this.props.goto('renew', this.props.data); }]
         ]
+    }
+
+    setLoseInfoAction = (action) => {
+        this.setState({
+            lose_info_action: action
+        })
+    }
+
+    setLoseInfoModal = (bool) => {
+        this.setState({
+            lose_info_modal: bool
+        })
+    }
+
+    setTimeout = () => {
+        const { data, goto } = this.props;
+        const { prev_page, price } = data;
+
+        setTimeout(() => {
+            goto('finish', {
+                prev_page: prev_page,
+                price: price
+            });
+        }, 7000);
     }
 
     clearTimeout = () => {
@@ -46,9 +68,15 @@ class CardPage extends Component {
     render() {
         const { t, goto, data } = this.props;
         const { prev_page, price } = data;
+        const { lose_info_action, lose_info_modal } = this.state;
 
         return (
             <>
+                <LoseInfoModal
+                    action={() => { lose_info_action() }}
+                    close={() => { this.setLoseInfoModal(false); this.setTimeout(); }}
+                    open={lose_info_modal}
+                />
                 <Grid container alignItems='center'>
                     <Grid item xs={12}>
                         <Progress

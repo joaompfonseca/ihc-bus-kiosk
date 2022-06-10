@@ -3,7 +3,9 @@
         "back": "Voltar",
         "continue": "Continuar",
         "ignore": "Ignorar",
-        "payment": "Pagar"
+        "no": "Não",
+        "payment": "Pagar",
+        "yes": "Sim"
     },
     "progress": {
         "bigStep": {
@@ -41,6 +43,9 @@
     },
     "routeInfo": {
         "buses": "Autocarros"
+    },
+    "loseInfo": {
+        "description": "Perderá informação se continuar. Quer mesmo fazer isto?"
     },
     "passInfo": {
         "passName": {
@@ -128,7 +133,7 @@
     },
     "paymentMethods": {
         "prompt": {
-            "select": "Selecione metodo de pagamento."
+            "select": "Selecione metodo de pagamento"
         },
         "label": {
             "total": "Total"
@@ -148,23 +153,6 @@
         },
         "description": {
             "insert": "Insira ou leia o seu cartão e siga as instruções no terminal."
-        }
-    },
-    "payment": {
-        "method": {
-            "prompt": "Selecione método de pagamento"
-        },
-        "cash": {
-            "prompt": "Insert the money"
-        },
-        "mbway": {
-            "prompt": "Read the QR Code"
-        },
-        "card": {
-            "prompt": "Insert the card and follow the instructions"
-        },
-        "applepay": {
-            "prompt": "Hold your phone near the sensor"
         }
     },
     "finish": {

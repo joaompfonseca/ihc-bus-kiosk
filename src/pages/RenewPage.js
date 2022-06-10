@@ -1,19 +1,23 @@
 import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { ContinueButton, Progress, BackButton, PassInfo } from "../components";
+import { BackButton, ContinueButton, LoseInfoModal, PassInfo, Progress } from "../components";
 import imgKioskSensor from '../assets/images/Kiosk/sensor.png';
 
 class RenewPage extends Component {
 
     constructor(props) {
         super(props);
-        setTimeout(() => { this.setIndex(1); }, 7000); // Pretend to scan the pass
+        this.setTimeout(); // Pretend to scan the pass
     }
 
-    state = {
-        index: 0
-    };
+    state = (this.props.data?.renew_state === undefined) ?
+        {
+            index: 0,
+            lose_info_action: () => { },
+            lose_info_modal: false
+        }
+        : this.props.data.renew_state;
 
     smallSteps = [
         [
@@ -64,16 +68,47 @@ class RenewPage extends Component {
         </>,
         <>
             <Grid item xs={6} align='left'>
-                <BackButton text={this.props.t('button.back')} action={() => { this.setIndex(0); }} />
+                <BackButton text={this.props.t('button.back')} action={() => {
+                    this.setLoseInfoAction(() => { this.setIndex(0); });
+                    this.setLoseInfoModal(true);
+                }} />
             </Grid>
             <Grid item xs={6} align='right'>
-                <ContinueButton text={this.props.t('button.continue')} action={() => { this.props.goto('nif', { prev_page: 'renew', price: this.passes[0].price }); }} />
+                <ContinueButton text={this.props.t('button.continue')} action={() => {
+                    this.props.goto('nif', {
+                        prev_page: 'renew',
+                        price: this.passes[0].price,
+                        renew_state: this.state
+                    });
+                }} />
             </Grid>
         </>
     ];
 
+    setLoseInfoAction = (action) => {
+        this.setState({
+            lose_info_action: action
+        })
+    }
+
+    setLoseInfoModal = (bool) => {
+        this.setState({
+            lose_info_modal: bool
+        })
+    }
+
+    setTimeout = () => {
+        const { index } = this.state;
+
+        if (index === 0) {
+            setTimeout(() => {
+                this.setIndex(1);
+            }, 7000);
+        }
+    }
+
     clearTimeout = () => {
-        const highestTimeoutId = setTimeout(() => {});
+        const highestTimeoutId = setTimeout(() => { });
         for (var i = 0; i < highestTimeoutId; i++) {
             clearTimeout(i);
         }
@@ -112,14 +147,39 @@ class RenewPage extends Component {
 
     render() {
         const { t, goto } = this.props;
+        const { index, lose_info_action, lose_info_modal } = this.state;
 
         return (
             <>
+                <LoseInfoModal
+                    action={() => {
+                        lose_info_action();
+                        if (index === 1) {
+                            this.setLoseInfoModal(false);
+                        }
+                    }}
+                    close={() => {
+                        this.setLoseInfoModal(false);
+                        if (index === 0) {
+                            this.setTimeout();
+                        }
+                    }}
+                    open={lose_info_modal}
+                />
                 <Grid container alignItems='center'>
                     <Grid item xs={12}>
                         <Progress
                             bigSteps={[
-                                [<Typography fontWeight='bold'>{t('progress.bigStep.passes.renew')}</Typography>, () => { this.clearTimeout(); goto('operation'); }]
+                                [<Typography fontWeight='bold'>{t('progress.bigStep.passes.renew')}</Typography>, () => {
+                                    this.clearTimeout();
+                                    if (index === 0) {
+                                        goto('operation');
+                                    }
+                                    else if (index === 1) {
+                                        this.setLoseInfoAction(() => { goto('operation'); });
+                                        this.setLoseInfoModal(true);
+                                    }
+                                }]
                             ]}
                             smallSteps={this.getSmallSteps()}
                         />

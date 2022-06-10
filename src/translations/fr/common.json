@@ -3,7 +3,9 @@
         "back": "Retour",
         "continue": "Continuez",
         "ignore": "Ignorer",
-        "payment": "Paiement"
+        "no": "Non",
+        "payment": "Paiement",
+        "yes": "Oui"
     },
     "progress": {
         "bigStep": {
@@ -41,6 +43,9 @@
     },
     "routeInfo": {
         "buses": "Autobuses"
+    },
+    "loseInfo": {
+        "description": "Vous perdrez des informations si vous continuez. Voulez-vous vraiment faire cela?"
     },
     "passInfo": {
         "passName": {
@@ -148,23 +153,6 @@
         },
         "description": {
             "insert": "Insérez ou scannez votre carte et suivez les instructions du terminal."
-        }
-    },
-    "payment": {
-        "method": {
-            "prompt": "Sélectionnez le mode de paiement"
-        },
-        "cash": {
-            "prompt": "Insérer l'argent"
-        },
-        "mbway": {
-            "prompt": "Lire le code QR"
-        },
-        "card": {
-            "prompt": "Insérez la carte et suivez les instructions"
-        },
-        "applepay": {
-            "prompt": "Tenez votre téléphone près du capteur"
         }
     },
     "finish": {

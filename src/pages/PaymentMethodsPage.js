@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Grid, Typography } from "@mui/material";
 import { withTranslation } from "react-i18next";
-import { BackButton, MethodButton, Progress } from "../components";
+import { BackButton, LoseInfoModal, MethodButton, Progress } from "../components";
 import cash from '../assets/images/PaymentMethod/cash.png';
 import card from '../assets/images/PaymentMethod/card.png';
 import mbway from '../assets/images/PaymentMethod/mbway.png';
@@ -11,15 +11,32 @@ import bitcoin from '../assets/images/PaymentMethod/bitcoin.png';
 
 class PaymentMethodsPage extends Component {
 
+    state = {
+        lose_info_action: () => { },
+        lose_info_modal: false
+    }
+
     bigSteps = {
         single: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.tickets.single')}</Typography>, () => { this.setLoseInfoAction(() => { this.props.goto('operation', this.props.data); }); this.setLoseInfoModal(true); }],
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.single')}</Typography>, () => { this.props.goto('single', this.props.data); }]
         ],
         renew: [
-            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.props.goto('operation', this.props.data); }],
+            [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.passes.renew')}</Typography>, () => { this.setLoseInfoAction(() => { this.props.goto('operation', this.props.data); }); this.setLoseInfoModal(true); }],
             [<Typography fontWeight='bold'>{this.props.t('progress.bigStep.customization.renew')}</Typography>, () => { this.props.goto('renew', this.props.data); }]
         ]
+    }
+
+    setLoseInfoAction = (action) => {
+        this.setState({
+            lose_info_action: action
+        })
+    }
+
+    setLoseInfoModal = (bool) => {
+        this.setState({
+            lose_info_modal: bool
+        })
     }
 
     getBigSteps = () => {
@@ -32,9 +49,15 @@ class PaymentMethodsPage extends Component {
     render() {
         const { t, goto, data } = this.props;
         const { prev_page, price } = data;
+        const { lose_info_action, lose_info_modal } = this.state;
 
         return (
             <>
+                <LoseInfoModal
+                    action={() => { lose_info_action() }}
+                    close={() => { this.setLoseInfoModal(false); }}
+                    open={lose_info_modal}
+                />
                 <Grid container>
                     <Grid item xs={12}>
                         <Progress
@@ -48,7 +71,7 @@ class PaymentMethodsPage extends Component {
                         />
                     </Grid>
                     <Grid item xs={12} align='center'>
-                        <Typography variant='h1' fontWeight='bold'>{t('payment.method.prompt')}</Typography>
+                        <Typography variant='h1' fontWeight='bold'>{t('paymentMethods.prompt.select')}</Typography>
                         <hr />
                     </Grid>
                     <Grid item xs={6} align='right' paddingRight='2vh'>

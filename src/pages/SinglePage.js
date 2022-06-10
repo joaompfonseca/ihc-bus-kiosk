@@ -1,20 +1,22 @@
 import { Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { withTranslation } from "react-i18next";
-import { AddButton, BackButton, BasicDatePicker, EditButton, LeftButton, LocationsModal, Progress, RightButton, RouteInfo } from "../components";
+import { AddButton, BackButton, BasicDatePicker, EditButton, LeftButton, LocationsModal, LoseInfoModal, Progress, RightButton, RouteInfo } from "../components";
 import imgTransdev from '../assets/images/RouteCompany/transdev.png';
 
 class SinglePage extends Component {
 
     state = (this.props.data?.single_state === undefined) ?
         {
-            origin_locations_modal: false,
-            origin_selected: false,
-            origin_name: this.props.t('single.label.origin'),
-            destination_locations_modal: false,
-            destination_selected: false,
-            destination_name: this.props.t('single.label.destination'),
             departure_date: new Date(),
+            destination_locations_modal: false,
+            destination_name: this.props.t('single.label.destination'),
+            destination_selected: false,
+            lose_info_action: () => { },
+            lose_info_modal: false,
+            origin_locations_modal: false,
+            origin_name: this.props.t('single.label.origin'),
+            origin_selected: false,
             routes_page: 1
         }
         : this.props.data.single_state;
@@ -69,15 +71,27 @@ class SinglePage extends Component {
         },
     ];
 
-    setOriginLocationsModal = (bool) => {
-        this.setState({
-            origin_locations_modal: bool
-        })
-    }
-
     setDestinationLocationsModal = (bool) => {
         this.setState({
             destination_locations_modal: bool
+        })
+    }
+
+    setLoseInfoAction = (action) => {
+        this.setState({
+            lose_info_action: action
+        })
+    }
+
+    setLoseInfoModal = (bool) => {
+        this.setState({
+            lose_info_modal: bool
+        })
+    }
+
+    setOriginLocationsModal = (bool) => {
+        this.setState({
+            origin_locations_modal: bool
         })
     }
 
@@ -239,12 +253,17 @@ class SinglePage extends Component {
 
     render() {
         const { goto, t } = this.props;
-        const { origin_locations_modal, destination_locations_modal, origin_name, destination_name, departure_date } = this.state;
+        const { departure_date, destination_locations_modal, destination_name, lose_info_action, lose_info_modal, origin_locations_modal, origin_name } = this.state;
         const origin_names = this.origin_names;
         const destination_names = this.destination_names;
 
         return (
             <>
+                <LoseInfoModal
+                    action={() => { lose_info_action() }}
+                    close={() => { this.setLoseInfoModal(false); }}
+                    open={lose_info_modal}
+                />
                 <LocationsModal
                     action={(name) => { this.setOriginName(name); this.setOriginSelected(true); this.setOriginLocationsModal(false); }}
                     location_names={origin_names}
@@ -261,7 +280,7 @@ class SinglePage extends Component {
                     <Grid item xs={12}>
                         <Progress
                             bigSteps={[
-                                [<Typography fontWeight='bold'>{t('progress.bigStep.tickets.single')}</Typography>, () => { goto('operation'); }]
+                                [<Typography fontWeight='bold'>{t('progress.bigStep.tickets.single')}</Typography>, () => { this.setLoseInfoAction(() => { goto('operation'); }); this.setLoseInfoModal(true); }]
                             ]}
                             smallSteps={this.getSmallSteps()}
                         />
@@ -300,7 +319,7 @@ class SinglePage extends Component {
                 </Grid>
                 <Grid container position='absolute' bottom='1vh' width='54.25vh'>
                     <Grid item xs={12} align='left'>
-                        <BackButton text={t('button.back')} action={() => { goto('tickets'); }} />
+                        <BackButton text={t('button.back')} action={() => { this.setLoseInfoAction(() => { goto('tickets'); }); this.setLoseInfoModal(true); }} />
                     </Grid>
                 </Grid>
             </>
