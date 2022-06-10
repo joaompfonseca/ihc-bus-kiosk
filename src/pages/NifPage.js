@@ -9,7 +9,7 @@ class NifPage extends Component {
     state = {
         lose_info_action: () => { },
         lose_info_modal: false,
-        nif: (this.props.data?.nif == undefined) ? '' : this.props.data.nif
+        nif: (this.props.data?.nif === undefined) ? '' : this.props.data.nif
     }
 
     bigSteps = {

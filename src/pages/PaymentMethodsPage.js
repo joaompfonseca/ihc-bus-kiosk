@@ -48,7 +48,7 @@ class PaymentMethodsPage extends Component {
 
     render() {
         const { t, goto, data } = this.props;
-        const { prev_page, price } = data;
+        const { price } = data;
         const { lose_info_action, lose_info_modal } = this.state;
 
         return (
