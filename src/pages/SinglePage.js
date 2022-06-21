@@ -15,8 +15,8 @@ class SinglePage extends Component {
             lose_info_action: () => { },
             lose_info_modal: false,
             origin_locations_modal: false,
-            origin_name: this.props.t('single.label.origin'),
-            origin_selected: false,
+            origin_name: 'Terminal Rodoviário de Aveiro',
+            origin_selected: true,
             routes_filter: 'time',
             routes_page: 1
         }
