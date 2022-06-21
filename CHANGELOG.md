@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [0.2.0] - 2022-06-XX
+## [0.2.0] - 2022-06-21
 ### Added
 - Now locations and routes can be selected if clicked anywhere, including their button.
 - New border on each selectable location.
